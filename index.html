@@ -195,6 +195,7 @@
                   <option value="STMKG">STMKG</option>
                   <option value="Kemenhub">Kemenhub</option>
                   <option value="Poltek SSN">Poltek SSN</option>
+                  <option value="Other">Lainnya...</option>
                 </select>
               </div>
               <div id="otherSekolahContainer" class="hidden">
@@ -371,14 +372,6 @@
 
           if (!isValid) return;
 
-          if (scriptURL === "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
-            displayMessage(
-              "error",
-              "Pengiriman formulir belum dikonfigurasi. Silakan ikuti petunjuk pengaturan di dalam kode."
-            );
-            return;
-          }
-
           setLoading(true);
 
           const formData = new FormData(form);
@@ -401,10 +394,16 @@
             .then((response) => response.json())
             .then((data) => {
               if (data.result === "success") {
-                displayMessage(
-                  "success",
-                  "Pendaftaran berhasil! Link Zoom akan dikirimkan saat H-1 Webinar dilaksanakan."
-                );
+                // --- PERUBAHAN DI SINI ---
+                const successMessageHTML = `
+                    <p class="text-lg">Pendaftaran Berhasil!</p>
+                    <p class="mt-2 text-gray-300">Link Zoom akan dikirim H-1 sebelum acara.</p>
+                    <p class="mt-4 font-semibold">Jangan sampai ketinggalan info & pembahasan soal. Yuk gabung komunitas kami!</p>
+                    <a href="https://t.me/diskusispeedu" target="_blank" class="inline-block mt-4 px-6 py-2 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-lg">
+                        <i class="fab fa-telegram-plane mr-2"></i> Gabung Grup Telegram
+                    </a>
+                `;
+                displayMessage("success", successMessageHTML);
                 form.reset();
                 confidenceValue.textContent = "50%";
                 otherSekolahContainer.classList.add("hidden");
@@ -439,16 +438,20 @@
         }
 
         function displayMessage(type, message) {
-          formMessage.textContent = message;
-          formMessage.className = "mt-4 text-center p-4 rounded-lg"; // Reset classes
+          // --- PERUBAHAN DI SINI ---
+          formMessage.innerHTML = message; // Diubah dari textContent ke innerHTML
+          formMessage.className = "mt-4 text-center p-6 rounded-lg"; // Reset classes
           if (type === "success") {
-            formMessage.classList.add("bg-green-500/30", "text-green-200");
+            formMessage.classList.add("bg-green-500/30", "text-white");
           } else {
             formMessage.classList.add("bg-red-500/30", "text-red-200");
           }
-          setTimeout(() => {
-            formMessage.classList.add("hidden");
-          }, 5000);
+          // Hapus pesan setelah beberapa detik, kecuali pesan sukses
+          if (type !== "success") {
+            setTimeout(() => {
+              formMessage.classList.add("hidden");
+            }, 5000);
+          }
         }
       });
     </script>
