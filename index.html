@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Webinar: Kenapa Banyak Orang Gagal Tes SKD</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0068e1; /* Warna biru utama */
+            color: #ffffff;
+        }
+        .fade-in-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom styles for range slider */
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            background: #facc15; /* yellow-400 */
+            cursor: pointer;
+            border-radius: 50%;
+            margin-top: -8px; 
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            background: #facc15;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .content-card {
+             backdrop-filter: blur(12px);
+             -webkit-backdrop-filter: blur(12px);
+             background-color: rgba(0, 0, 0, 0.25);
+             border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-6 py-12 md:py-20">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight text-white">
+                Kenapa Banyak Orang Gagal Tes SKD Sekolah Kedinasan
+            </h1>
+            <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+                Ikuti webinar eksklusif kami untuk mengungkap kesalahan umum dan menguasai strategi untuk sukses.
+            </p>
+        </header>
+
+        <main class="flex flex-col items-center gap-12 md:gap-16">
+            
+            <!-- Flyer Display -->
+            <section id="flyer" class="w-full max-w-3xl fade-in-scroll">
+                <div class="content-card p-4 rounded-2xl shadow-2xl">
+                     <h2 class="text-3xl font-bold text-white mb-4 text-center">Flyer Webinar</h2>
+                    <img src="https://placehold.co/1200x800/0068e1/FFFFFF?text=Flyer+Webinar\nSKD+2025" 
+                         alt="Flyer Webinar SKD" 
+                         class="rounded-xl w-full h-auto object-cover"
+                         onerror="this.onerror=null;this.src='https://placehold.co/1200x800/004a9e/FFFFFF?text=Gambar+Tidak+Tersedia';">
+                </div>
+            </section>
+
+            <!-- Event Details -->
+            <section id="details" class="w-full max-w-3xl fade-in-scroll">
+                <div class="content-card p-8 rounded-2xl shadow-2xl">
+                    <h2 class="text-3xl font-bold text-white mb-6">Detail Acara</h2>
+                    <div class="space-y-4 text-gray-200 text-lg">
+                        <p><i class="fas fa-calendar-alt w-6 mr-3 text-yellow-400"></i> <strong class="font-semibold">Tanggal:</strong> Selasa, 1 Juli 2025</p>
+                        <p><i class="fas fa-clock w-6 mr-3 text-yellow-400"></i> <strong class="font-semibold">Waktu:</strong> Mulai 19:30 WIB</p>
+                        <p><i class="fas fa-user-tie w-6 mr-3 text-yellow-400"></i> <strong class="font-semibold">Pembicara:</strong> Dwi Indra</p>
+                        <div>
+                           <p class="font-semibold mt-6 mb-2"><i class="fas fa-bullseye w-6 mr-3 text-yellow-400"></i>Topik Utama:</p>
+                           <ul class="list-disc list-inside ml-4 space-y-2">
+                               <li>Kesalahan Umum Penyebab Kegagalan Tes SKD</li>
+                               <li>Pembahasan Mendalam Soal Prediksi SKD 2025</li>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Registration Form -->
+            <section id="registration" class="w-full max-w-3xl fade-in-scroll">
+                <div class="content-card p-8 rounded-2xl shadow-2xl">
+                    <h2 class="text-3xl font-bold text-center mb-6 text-white">Daftar Sekarang!</h2>
+                    
+                    <form id="registrationForm" class="space-y-5">
+                        <!-- Nama Lengkap -->
+                        <div>
+                            <label for="fullName" class="block mb-2 text-sm font-medium text-gray-200">Nama Lengkap</label>
+                            <input type="text" id="fullName" name="fullName" class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5" placeholder="contoh: Budi Santoso" required>
+                        </div>
+
+                        <!-- Nomor WhatsApp -->
+                        <div>
+                            <label for="whatsappNumber" class="block mb-2 text-sm font-medium text-gray-200">Nomor WhatsApp</label>
+                            <input type="tel" id="whatsappNumber" name="whatsappNumber" class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5" placeholder="+628123456789" required>
+                            <p id="whatsappError" class="text-yellow-300 text-xs mt-1 hidden">Mohon masukkan nomor Indonesia yang valid (cth: 08... atau +62...).</p>
+                        </div>
+
+                        <!-- Sekolah Kedinasan Pilihan -->
+                        <div>
+                            <label for="sekolahKedinasan" class="block mb-2 text-sm font-medium text-gray-200">Sekolah Kedinasan Pilihan</label>
+                            <select id="sekolahKedinasan" name="sekolahKedinasan" class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5">
+                                <option selected disabled>Pilih salah satu</option>
+                                <option value="IPDN">IPDN</option>
+                                <option value="STAN">STAN</option>
+                                <option value="STIN">STIN</option>
+                                <option value="Polstat STIS">Polstat STIS</option>
+                                <option value="STMKG">STMKG</option>
+                                <option value="Other">Lainnya...</option>
+                            </select>
+                        </div>
+                         <div id="otherSekolahContainer" class="hidden">
+                            <label for="otherSekolah" class="block mb-2 text-sm font-medium text-gray-200">Sebutkan</label>
+                            <input type="text" id="otherSekolah" name="otherSekolah" class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5" placeholder="Masukkan nama sekolah">
+                        </div>
+
+                        <!-- Tingkat Keyakinan -->
+                        <div>
+                            <label for="confidenceLevel" class="block mb-2 text-sm font-medium text-gray-200">Tingkat Keyakinan Lulus: <span id="confidenceValue" class="font-bold text-yellow-400">50%</span></label>
+                            <input id="confidenceLevel" type="range" min="0" max="100" value="50" name="confidenceLevel" class="w-full h-2 bg-gray-900/50 rounded-lg appearance-none cursor-pointer">
+                        </div>
+
+                        <!-- Target Skor SKD -->
+                        <div>
+                            <label for="expectedScore" class="block mb-2 text-sm font-medium text-gray-200">Target Skor SKD (0-550)</label>
+                            <input type="number" id="expectedScore" name="expectedScore" min="0" max="550" class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5" placeholder="contoh: 450" required>
+                             <p id="scoreError" class="text-yellow-300 text-xs mt-1 hidden">Skor harus antara 0 dan 550.</p>
+                        </div>
+
+                        <!-- Tombol Submit -->
+                        <button type="submit" id="submitButton" class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-md px-5 py-3 text-center transition duration-300 ease-in-out transform hover:scale-105">
+                            <span id="buttonText">Daftarkan Saya</span>
+                            <i id="buttonSpinner" class="fas fa-spinner fa-spin hidden"></i>
+                        </button>
+                    </form>
+
+                     <!-- Pesan Status Form -->
+                    <div id="formMessage" class="mt-4 text-center p-4 rounded-lg hidden"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-20 text-gray-200 text-sm">
+            <p>&copy; 2025 Webinar Sukses SKD. Hak cipta dilindungi.</p>
+            <p class="mt-2">
+                Ada pertanyaan? 
+                <a href="https://wa.me/6281234567890?text=Halo, saya ingin bertanya tentang webinar SKD." target="_blank" class="font-semibold text-yellow-300 hover:underline">
+                    Hubungi kami di WhatsApp
+                </a>
+            </p>
+        </footer>
+    </div>
+
+    <!-- INSTRUCTIONS FOR GOOGLE APPS SCRIPT (UNCHANGED) -->
+    <!-- ... (Instructions remain in English for the developer) ... -->
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Scroll Animation ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-scroll').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // --- Form Logic ---
+            const form = document.getElementById('registrationForm');
+            const submitButton = document.getElementById('submitButton');
+            const buttonText = document.getElementById('buttonText');
+            const buttonSpinner = document.getElementById('buttonSpinner');
+            const formMessage = document.getElementById('formMessage');
+            
+            // GOOGLE APPS SCRIPT URL - GANTI DENGAN URL ANDA
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbzXVFzNrMUKjt69ktMBm4dRJ12dYt8STqOnFe-8mX8k0JS97jkboReOtPxU1Mi2Ho0/exec';
+
+            const whatsappInput = document.getElementById('whatsappNumber');
+            const whatsappError = document.getElementById('whatsappError');
+            const scoreInput = document.getElementById('expectedScore');
+            const scoreError = document.getElementById('scoreError');
+            const confidenceSlider = document.getElementById('confidenceLevel');
+            const confidenceValue = document.getElementById('confidenceValue');
+            const sekolahSelect = document.getElementById('sekolahKedinasan');
+            const otherSekolahContainer = document.getElementById('otherSekolahContainer');
+            const otherSekolahInput = document.getElementById('otherSekolah');
+            
+            confidenceSlider.addEventListener('input', (e) => {
+                confidenceValue.textContent = `${e.target.value}%`;
+            });
+
+            sekolahSelect.addEventListener('change', (e) => {
+                if(e.target.value === 'Other') {
+                    otherSekolahContainer.classList.remove('hidden');
+                    otherSekolahInput.required = true;
+                } else {
+                    otherSekolahContainer.classList.add('hidden');
+                    otherSekolahInput.required = false;
+                }
+            });
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                let isValid = true;
+                const whatsappValue = whatsappInput.value;
+                if (!/^(^\+62|62|08)(\d{8,15})$/.test(whatsappValue)) {
+                    whatsappError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    whatsappError.classList.add('hidden');
+                }
+
+                const scoreValue = parseInt(scoreInput.value, 10);
+                if (isNaN(scoreValue) || scoreValue < 0 || scoreValue > 550) {
+                    scoreError.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    scoreError.classList.add('hidden');
+                }
+
+                if (!isValid) return;
+                
+                if (scriptURL === 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+                    displayMessage('error', 'Pengiriman formulir belum dikonfigurasi. Silakan ikuti petunjuk pengaturan di dalam kode.');
+                    return;
+                }
+
+                setLoading(true);
+                
+                const formData = new FormData(form);
+                const dataObject = {};
+                formData.forEach((value, key) => { dataObject[key] = value; });
+
+                if (dataObject.sekolahKedinasan === 'Other') {
+                    dataObject.sekolahKedinasan = dataObject.otherSekolah;
+                }
+                delete dataObject.otherSekolah;
+
+                fetch(scriptURL, { 
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(dataObject)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.result === "success"){
+                        displayMessage('success', 'Pendaftaran berhasil! Sampai jumpa di webinar.');
+                        form.reset();
+                        confidenceValue.textContent = '50%';
+                        otherSekolahContainer.classList.add('hidden');
+                    } else {
+                        throw new Error(data.message || 'Terjadi kesalahan tidak diketahui.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    displayMessage('error', 'Pendaftaran gagal. Silakan coba lagi nanti.');
+                })
+                .finally(() => {
+                    setLoading(false);
+                });
+            });
+
+            function setLoading(isLoading) {
+                if (isLoading) {
+                    buttonText.classList.add('hidden');
+                    buttonSpinner.classList.remove('hidden');
+                    submitButton.disabled = true;
+                } else {
+                    buttonText.classList.remove('hidden');
+                    buttonSpinner.classList.add('hidden');
+                    submitButton.disabled = false;
+                }
+            }
+            
+            function displayMessage(type, message) {
+                formMessage.textContent = message;
+                formMessage.className = 'mt-4 text-center p-4 rounded-lg'; // Reset classes
+                if (type === 'success') {
+                    formMessage.classList.add('bg-green-500/30', 'text-green-200');
+                } else {
+                    formMessage.classList.add('bg-red-500/30', 'text-red-200');
+                }
+                 setTimeout(() => {
+                    formMessage.classList.add('hidden');
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>
