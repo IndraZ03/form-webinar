@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Survei Feedback Webinar Kenapa Banyak Orang Gagal Tes SKD Sekolah
+      Kedinasan
+    </title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0068e1; /* Warna biru utama */
+        color: #ffffff;
+      }
+      .content-card {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 1.5rem; /* 24px */
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+      }
+      /* Custom Radio Button Styles */
+      .radio-group input[type="radio"] {
+        display: none;
+      }
+      .radio-group label {
+        display: inline-block;
+        padding: 0.75rem 1.25rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-weight: 600;
+        min-width: 80px;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .radio-group input[type="radio"]:checked + label {
+        background-color: #facc15;
+        color: #1e293b;
+        border-color: #facc15;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(250, 204, 21, 0.4);
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div class="container mx-auto px-4 py-12 md:py-20">
+      <!-- Header Section -->
+      <header class="text-center mb-12">
+        <img
+          src="LOGO SPEEDU (6).png"
+          alt="Logo SPEEDU"
+          class="mx-auto h-24 mb-6"
+        />
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-3 text-white">
+          Terima Kasih Telah Bergabung!
+        </h1>
+        <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+          Mohon isi survei singkat ini untuk membantu kami menjadi lebih baik
+          dan dapatkan e-book gratis sebagai tanda terima kasih.
+        </p>
+      </header>
+
+      <!-- E-book Cover Preview Section -->
+      <section id="ebook-preview" class="w-full max-w-md mx-auto mb-12">
+        <div class="content-card p-4 rounded-2xl shadow-2xl">
+          <h3 class="text-center text-xl font-bold mb-4">
+            Dapatkan E-book <br />PANDUAN #NGEBUTBELAJAR PERSIAPAN TES SEKOLAH
+            KEDINASAN
+          </h3>
+          <img
+            id="ebookCover"
+            src="FREEBOOK.png"
+            alt="Cover E-book SKD"
+            class="rounded-xl w-full h-auto object-cover"
+            onerror="this.onerror=null;this.src='https://placehold.co/800x1131/004a9e/FFFFFF?text=Cover+E-book';"
+          />
+        </div>
+      </section>
+
+      <!-- Feedback Form -->
+      <main class="max-w-3xl mx-auto">
+        <div class="content-card p-8 md:p-12">
+          <form id="feedbackForm" class="space-y-8">
+            <!-- Data Diri -->
+            <div class="space-y-6">
+              <div>
+                <label
+                  for="fullName"
+                  class="block mb-3 text-lg font-semibold text-gray-200"
+                  >Nama Lengkap Anda</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="Nama"
+                  class="w-full p-3 bg-gray-900/50 border-2 border-gray-500 text-white rounded-xl focus:bg-gray-800/50 focus:border-yellow-400 focus:ring-0 transition"
+                  placeholder="Tulis nama lengkap Anda..."
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="noWhatsapp"
+                  class="block mb-3 text-lg font-semibold text-gray-200"
+                  >Nomor WhatsApp</label
+                >
+                <input
+                  type="tel"
+                  id="noWhatsapp"
+                  name="No_Whatsapp"
+                  class="w-full p-3 bg-gray-900/50 border-2 border-gray-500 text-white rounded-xl focus:bg-gray-800/50 focus:border-yellow-400 focus:ring-0 transition"
+                  placeholder="Contoh: 08123456789"
+                  required
+                />
+                <p
+                  id="whatsappError"
+                  class="text-yellow-300 text-xs mt-2 hidden"
+                >
+                  Mohon masukkan nomor Indonesia yang valid.
+                </p>
+              </div>
+            </div>
+
+            <!-- Keterangan Skala Penilaian -->
+            <div class="bg-blue-800/50 p-5 rounded-xl">
+              <h3 class="font-bold text-white text-center mb-4">
+                Keterangan Penilaian
+              </h3>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                <div>
+                  <span class="font-bold text-2xl text-yellow-400">1</span>
+                  <p class="text-xs text-gray-300 mt-1">Sangat Tidak</p>
+                </div>
+                <div>
+                  <span class="font-bold text-2xl text-yellow-400">2</span>
+                  <p class="text-xs text-gray-300 mt-1">Kurang</p>
+                </div>
+                <div>
+                  <span class="font-bold text-2xl text-yellow-400">3</span>
+                  <p class="text-xs text-gray-300 mt-1">Cukup</p>
+                </div>
+                <div>
+                  <span class="font-bold text-2xl text-yellow-400">4</span>
+                  <p class="text-xs text-gray-300 mt-1">Sangat Iya</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Survey Questions -->
+            <div class="space-y-8">
+              <!-- Pertanyaan 1 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  1. Apakah materi yang disampaikan narasumber jelas dan mudah
+                  dimengerti?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q1-1"
+                    name="Materi_Jelas"
+                    value="1"
+                    required
+                  /><label for="q1-1">1</label>
+                  <input
+                    type="radio"
+                    id="q1-2"
+                    name="Materi_Jelas"
+                    value="2"
+                  /><label for="q1-2">2</label>
+                  <input
+                    type="radio"
+                    id="q1-3"
+                    name="Materi_Jelas"
+                    value="3"
+                  /><label for="q1-3">3</label>
+                  <input
+                    type="radio"
+                    id="q1-4"
+                    name="Materi_Jelas"
+                    value="4"
+                  /><label for="q1-4">4</label>
+                </div>
+              </div>
+              <!-- Pertanyaan 2 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  2. Apakah materi yang disampaikan sesuai dengan harapan Anda?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q2-1"
+                    name="Sesuai_Harapan"
+                    value="1"
+                    required
+                  /><label for="q2-1">1</label>
+                  <input
+                    type="radio"
+                    id="q2-2"
+                    name="Sesuai_Harapan"
+                    value="2"
+                  /><label for="q2-2">2</label>
+                  <input
+                    type="radio"
+                    id="q2-3"
+                    name="Sesuai_Harapan"
+                    value="3"
+                  /><label for="q2-3">3</label>
+                  <input
+                    type="radio"
+                    id="q2-4"
+                    name="Sesuai_Harapan"
+                    value="4"
+                  /><label for="q2-4">4</label>
+                </div>
+              </div>
+              <!-- Pertanyaan 3 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  3. Apakah motivasi Anda meningkat setelah menonton webinar
+                  ini?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q3-1"
+                    name="Motivasi_Meningkat"
+                    value="1"
+                    required
+                  /><label for="q3-1">1</label>
+                  <input
+                    type="radio"
+                    id="q3-2"
+                    name="Motivasi_Meningkat"
+                    value="2"
+                  /><label for="q3-2">2</label>
+                  <input
+                    type="radio"
+                    id="q3-3"
+                    name="Motivasi_Meningkat"
+                    value="3"
+                  /><label for="q3-3">3</label>
+                  <input
+                    type="radio"
+                    id="q3-4"
+                    name="Motivasi_Meningkat"
+                    value="4"
+                  /><label for="q3-4">4</label>
+                </div>
+              </div>
+              <!-- Pertanyaan 4 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  4. Apakah bedah soal yang dijelaskan oleh narasumber jelas?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q4-1"
+                    name="Bedah_Soal_Jelas"
+                    value="1"
+                    required
+                  /><label for="q4-1">1</label>
+                  <input
+                    type="radio"
+                    id="q4-2"
+                    name="Bedah_Soal_Jelas"
+                    value="2"
+                  /><label for="q4-2">2</label>
+                  <input
+                    type="radio"
+                    id="q4-3"
+                    name="Bedah_Soal_Jelas"
+                    value="3"
+                  /><label for="q4-3">3</label>
+                  <input
+                    type="radio"
+                    id="q4-4"
+                    name="Bedah_Soal_Jelas"
+                    value="4"
+                  /><label for="q4-4">4</label>
+                </div>
+              </div>
+              <!-- Pertanyaan 5 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  5. Apakah Anda tertarik dengan bimbel sekolah kedinasan?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q5-1"
+                    name="Tertarik_Bimbel"
+                    value="1"
+                    required
+                  /><label for="q5-1">1</label>
+                  <input
+                    type="radio"
+                    id="q5-2"
+                    name="Tertarik_Bimbel"
+                    value="2"
+                  /><label for="q5-2">2</label>
+                  <input
+                    type="radio"
+                    id="q5-3"
+                    name="Tertarik_Bimbel"
+                    value="3"
+                  /><label for="q5-3">3</label>
+                  <input
+                    type="radio"
+                    id="q5-4"
+                    name="Tertarik_Bimbel"
+                    value="4"
+                  /><label for="q5-4">4</label>
+                </div>
+              </div>
+              <!-- Pertanyaan 6 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  6. Apakah menurutmu harga program kelas di SpeedU terjangkau?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q6-1"
+                    name="Harga_Terjangkau"
+                    value="1"
+                    required
+                  /><label for="q6-1">1</label>
+                  <input
+                    type="radio"
+                    id="q6-2"
+                    name="Harga_Terjangkau"
+                    value="2"
+                  /><label for="q6-2">2</label>
+                  <input
+                    type="radio"
+                    id="q6-3"
+                    name="Harga_Terjangkau"
+                    value="3"
+                  /><label for="q6-3">3</label>
+                  <input
+                    type="radio"
+                    id="q6-4"
+                    name="Harga_Terjangkau"
+                    value="4"
+                  /><label for="q6-4">4</label>
+                </div>
+              </div>
+              <!-- Pertanyaan 7 -->
+              <div class="question-block">
+                <p class="block mb-4 text-lg font-semibold text-gray-200">
+                  7. Apakah Anda tertarik dengan bimbel SpeedU?
+                </p>
+                <div class="radio-group flex flex-wrap gap-3">
+                  <input
+                    type="radio"
+                    id="q7-1"
+                    name="Tertarik_SpeedU"
+                    value="1"
+                    required
+                  /><label for="q7-1">1</label>
+                  <input
+                    type="radio"
+                    id="q7-2"
+                    name="Tertarik_SpeedU"
+                    value="2"
+                  /><label for="q7-2">2</label>
+                  <input
+                    type="radio"
+                    id="q7-3"
+                    name="Tertarik_SpeedU"
+                    value="3"
+                  /><label for="q7-3">3</label>
+                  <input
+                    type="radio"
+                    id="q7-4"
+                    name="Tertarik_SpeedU"
+                    value="4"
+                  /><label for="q7-4">4</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kesan dan Pesan -->
+            <div>
+              <label
+                for="feedbackMessage"
+                class="block mb-3 text-lg font-semibold text-gray-200"
+                >Berikan kesan dan pesan kepada kami (Opsional)</label
+              >
+              <textarea
+                id="feedbackMessage"
+                name="Kesan_Pesan"
+                rows="5"
+                class="w-full p-3 bg-gray-900/50 border-2 border-gray-500 text-white rounded-xl focus:bg-gray-800/50 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Kesan, pesan, kritik, atau saran Anda sangat berarti bagi kami..."
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              id="submitButton"
+              class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-xl text-lg px-5 py-4 text-center transition duration-300 ease-in-out transform hover:scale-105"
+            >
+              <span id="buttonText"
+                ><i class="fas fa-book-open-reader mr-2"></i> UNDUH E-BOOK</span
+              >
+              <i id="buttonSpinner" class="fas fa-spinner fa-spin hidden"></i>
+            </button>
+          </form>
+          <div
+            id="formMessage"
+            class="mt-6 text-center p-4 rounded-lg hidden"
+          ></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- 
+    ================================================================
+    PETUNJUK GOOGLE APPS SCRIPT UNTUK SURVEI FEEDBACK
+    ================================================================
+    
+    Langkah 1: Buat Google Sheet Baru
+    1. Buka sheets.google.com dan buat spreadsheet kosong baru.
+    2. Di baris pertama, buat header kolom **PERSIS** seperti ini (sesuai nama di form):
+       `Timestamp`, `Nama`, `No_Whatsapp`, `Materi_Jelas`, `Sesuai_Harapan`, `Motivasi_Meningkat`, `Bedah_Soal_Jelas`, `Tertarik_Bimbel`, `Harga_Terjangkau`, `Tertarik_SpeedU`, `Kesan_Pesan`
+
+    Langkah 2: Buat Google Apps Script
+    1. Di Google Sheet, buka Ekstensi > Apps Script.
+    2. Hapus semua kode contoh, lalu salin dan tempel kode di bawah ini.
+    
+    ----------------------------------------------------------------
+    
+    function doPost(e) {
+      try {
+        var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1"); // Pastikan nama sheet benar
+        
+        var data = JSON.parse(e.postData.contents);
+        
+        // Urutan harus sama persis dengan header di Sheet
+        sheet.appendRow([
+          new Date(),
+          data.Nama,
+          data.No_Whatsapp,
+          data.Materi_Jelas,
+          data.Sesuai_Harapan,
+          data.Motivasi_Meningkat,
+          data.Bedah_Soal_Jelas,
+          data.Tertarik_Bimbel,
+          data.Harga_Terjangkau,
+          data.Tertarik_SpeedU,
+          data.Kesan_Pesan
+        ]);
+        
+        return ContentService
+          .createTextOutput(JSON.stringify({ "result": "success" }))
+          .setMimeType(ContentService.MimeType.JSON);
+          
+      } catch (error) {
+        return ContentService
+          .createTextOutput(JSON.stringify({ "result": "error", "message": error.toString() }))
+          .setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
+    ----------------------------------------------------------------
+
+    Langkah 3: Deploy Script
+    1. Klik "Deploy" > "New deployment".
+    2. Pilih tipe "Web app".
+    3. Execute as: "Me".
+    4. Who has access: "Anyone" (SANGAT PENTING).
+    5. Klik "Deploy", berikan izin akses saat diminta.
+    6. Salin "Web app URL" yang muncul.
+
+    Langkah 4: Hubungkan ke JavaScript
+    1. Di kode HTML di bawah, cari `const scriptURL`.
+    2. Ganti placeholder dengan URL Web app yang Anda salin.
+    ================================================================
+    -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("feedbackForm");
+        const submitButton = document.getElementById("submitButton");
+        const buttonText = document.getElementById("buttonText");
+        const buttonSpinner = document.getElementById("buttonSpinner");
+        const formMessage = document.getElementById("formMessage");
+        const noWhatsappInput = document.getElementById("noWhatsapp");
+        const whatsappError = document.getElementById("whatsappError");
+
+        // GANTI DENGAN URL GOOGLE APPS SCRIPT ANDA
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbz2xj8xQ9Ml1EsYvm7Acdub1QAM4dq-5D2p6kbkdw8a38XsqCzACtjmoeF0jd6XlgrQ/exec";
+        const ebookURL =
+          "https://drive.usercontent.google.com/download?id=1IwvA19bqImRE-UyeWJ8AYJzAZH5n9pt-&export=download&authuser=0&confirm=t&uuid=813b4156-01bb-4774-a7dd-a504278e0b66&at=AN8xHop7jo9UQyYKHodvei_8Ikjc:1751453394672";
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Validasi Nomor WhatsApp
+          const whatsappValue = noWhatsappInput.value;
+          if (!/^(^\+62|62|08)(\d{8,15})$/.test(whatsappValue)) {
+            whatsappError.classList.remove("hidden");
+            noWhatsappInput.focus();
+            return;
+          } else {
+            whatsappError.classList.add("hidden");
+          }
+
+          setLoading(true);
+
+          const formData = new FormData(form);
+          const dataObject = {};
+          formData.forEach((value, key) => {
+            dataObject[key] = value;
+          });
+
+          fetch(scriptURL, {
+            method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "text/plain;charset=utf-8" },
+            body: JSON.stringify(dataObject),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.result === "success") {
+                displayMessage(
+                  "success",
+                  "Terima kasih atas feedback Anda! E-book sedang diunduh..."
+                );
+                // Trigger download
+                window.location.href = ebookURL;
+                form.reset();
+              } else {
+                throw new Error(
+                  data.message || "Terjadi kesalahan yang tidak diketahui."
+                );
+              }
+            })
+            .catch((error) => {
+              console.error("Error!", error.message);
+              displayMessage(
+                "error",
+                `Pengiriman gagal. Silakan coba lagi. Error: ${error.message}`
+              );
+            })
+            .finally(() => {
+              setLoading(false);
+            });
+        });
+
+        function setLoading(isLoading) {
+          submitButton.disabled = isLoading;
+          buttonText.classList.toggle("hidden", isLoading);
+          buttonSpinner.classList.toggle("hidden", !isLoading);
+        }
+
+        function displayMessage(type, message) {
+          formMessage.innerHTML = message;
+          formMessage.className = "mt-6 text-center p-4 rounded-lg";
+          if (type === "success") {
+            formMessage.classList.add("bg-green-500/30", "text-green-200");
+          } else {
+            formMessage.classList.add("bg-red-500/30", "text-red-200");
+          }
+          setTimeout(() => {
+            formMessage.classList.add("hidden");
+          }, 5000);
+        }
+      });
+    </script>
+  </body>
+</html>
