@@ -66,7 +66,7 @@
       <!-- Header Section -->
       <header class="text-center mb-12">
         <img
-          src="https://placehold.co/260x130/transparent/FFFFFF?text=LOGO+ANDA"
+          src="LOGO SPEEDU (6).png"
           alt="Logo SPEEDU"
           class="mx-auto h-24 mb-6"
         />
@@ -85,7 +85,7 @@
       <section id="flyer" class="w-full max-w-2xl mx-auto mb-12">
         <div class="content-card p-4">
           <img
-            src="https://placehold.co/1200x800/0b77ec/FFFFFF?text=FLYER+BIMBEL+ANDA"
+            src="Flyer.png"
             alt="Flyer Bimbel SKB STMKG"
             class="rounded-xl w-full h-auto object-cover"
             onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0b77ec/FFFFFF?text=Gambar+Tidak+Tersedia';"
@@ -95,7 +95,7 @@
 
       <!-- Benefits Section -->
       <section class="max-w-4xl mx-auto mb-12">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
           <div class="content-card p-6">
             <i class="fas fa-user-graduate text-4xl text-yellow-300 mb-3"></i>
             <h3 class="font-bold text-lg">Pengajar Taruna Aktif</h3>
@@ -113,6 +113,61 @@
               90 menit per sesi, plus rekaman.
             </p>
           </div>
+          <div class="content-card p-6">
+            <i class="fas fa-file-alt text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Free 3x Try Out SKB</h3>
+            <p class="text-sm text-gray-300">Berbasis CAT sesuai FR.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Payment Section -->
+      <section class="max-w-2xl mx-auto mb-12">
+        <div class="content-card p-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">Pembayaran</h2>
+          <p class="text-gray-300 mb-6">
+            Upload bukti pembayaran di form pendaftaran di bawah.
+          </p>
+
+          <!-- QRIS Image -->
+          <div class="max-w-xs mx-auto mb-4">
+            <img
+              src="qris.jpg"
+              alt="QRIS Pembayaran"
+              class="rounded-lg w-full"
+            />
+          </div>
+          <a
+            id="downloadQrisBtn"
+            href="qris.jpg"
+            class="inline-block mb-6 text-yellow-300 hover:text-yellow-400 text-sm"
+            ><i class="fas fa-download mr-1"></i> Unduh Kode QRIS</a
+          >
+
+          <!-- Price -->
+          <div class="mb-6">
+            <p class="text-lg text-gray-300">Harga Program:</p>
+            <p class="text-5xl font-black text-white tracking-tight">
+              Rp 200.000
+            </p>
+          </div>
+
+          <!-- Cashback Info -->
+          <div class="bg-yellow-400 text-blue-900 p-4 rounded-lg">
+            <h3 class="font-bold text-lg">
+              <i class="fas fa-gift mr-2"></i>PROMO SPESIAL!
+            </h3>
+            <p class="mt-1">
+              Dapatkan <strong>Cashback 50RB</strong> dengan mengajak 1 teman!
+              Kirim bukti pendaftaran temanmu ke Admin di
+              <a
+                href="https://wa.me/6289666444301"
+                target="_blank"
+                class="font-bold underline"
+                >WhatsApp 089666444301</a
+              >.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -122,25 +177,7 @@
           <h2 class="text-3xl font-bold text-center mb-8 text-white">
             Formulir Pendaftaran
           </h2>
-          <!-- 
-            ================================================================
-            PETUNJUK INTEGRASI DENGAN NETLIFY FORMS
-            ================================================================
-            1. Atribut `data-netlify="true"` pada tag <form> akan mengaktifkan Netlify Forms.
-            2. `name="pendaftaran-bimbel"` adalah nama yang akan muncul di dashboard Netlify Anda.
-            3. `method="POST"` adalah metode pengiriman yang diperlukan.
-            4. Netlify akan secara otomatis mendeteksi input file dan menangani unggahannya.
-            5. Setelah di-deploy, semua data yang masuk akan terlihat di tab "Forms" pada situs Anda di Netlify.
-               Di sana, Anda akan melihat data teks dan sebuah link ke file yang diunggah.
-            ================================================================
-          -->
-          <form
-            name="pendaftaran-bimbel"
-            method="POST"
-            data-netlify="true"
-            class="space-y-6"
-            id="bimbelForm"
-          >
+          <form id="bimbelForm" class="space-y-6">
             <!-- Data Diri -->
             <div>
               <label
@@ -264,7 +301,7 @@
               <input
                 type="file"
                 id="paymentProof"
-                name="Bukti_Pembayaran"
+                name="Bukti_Pembayaran_File"
                 accept="image/*"
                 required
               />
@@ -273,21 +310,145 @@
             <!-- Submit Button -->
             <button
               type="submit"
+              id="submitButton"
               class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-lg px-5 py-4 text-center transition duration-300 ease-in-out transform hover:scale-105"
             >
-              <span>KIRIM PENDAFTARAN</span>
+              <span id="buttonText">KIRIM PENDAFTARAN</span>
+              <span id="buttonSpinner" class="hidden"
+                ><i class="fas fa-spinner fa-spin mr-2"></i>Sedang
+                Mengirim...(Jangan tutup halaman ini)</span
+              >
             </button>
           </form>
+          <div
+            id="formMessage"
+            class="mt-6 text-center p-4 rounded-lg hidden"
+          ></div>
         </div>
       </main>
     </div>
 
+    <!-- 
+    ================================================================
+    PETUNJUK GOOGLE APPS SCRIPT (METODE BASE64)
+    ================================================================
+    
+    Langkah 1: Buat Google Sheet & Folder Google Drive
+    1. Buat Google Sheet baru.
+    2. Di baris pertama, buat header kolom **PERSIS** seperti ini:
+       `Timestamp`, `Nama`, `No_Whatsapp`, `Jurusan`, `Harapan`, `Link_Bukti_Pembayaran`
+    3. Buat folder baru di Google Drive (misal: "Bukti Bayar Bimbel SKB").
+    4. Salin ID Folder dari URL.
+
+    Langkah 2: Buat Google Apps Script
+    1. Di Google Sheet, buka Ekstensi > Apps Script.
+    2. Hapus semua kode contoh, lalu salin dan tempel kode di bawah ini.
+    3. Ganti `'GANTI_DENGAN_ID_FOLDER_ANDA'` dengan ID Folder Google Drive Anda.
+    
+    ----------------------------------------------------------------
+    
+    const FOLDER_ID = 'GANTI_DENGAN_ID_FOLDER_ANDA';
+    const SHEET_NAME = "Sheet1";
+
+    function doPost(e) {
+      try {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+        if (!sheet) {
+          throw new Error(`Sheet '${SHEET_NAME}' not found`);
+        }
+        
+        const formData = JSON.parse(e.postData.contents);
+        
+        let fileUrl = "Tidak ada file diunggah";
+        if (formData.fileData) {
+          fileUrl = saveFile(formData.fileData);
+        }
+        
+        const rowData = {
+          Timestamp: new Date(),
+          Nama: formData.Nama,
+          No_Whatsapp: formData.No_Whatsapp,
+          Jurusan: formData.Jurusan,
+          Harapan: formData.Harapan,
+          Link_Bukti_Pembayaran: fileUrl
+        };
+        
+        appendToGoogleSheet(rowData, sheet);
+        
+        return ContentService.createTextOutput(
+          JSON.stringify({ status: "success", message: "Pendaftaran berhasil!" })
+        ).setMimeType(ContentService.MimeType.JSON);
+        
+      } catch (error) {
+        return ContentService.createTextOutput(
+          JSON.stringify({ status: "error", message: error.toString() })
+        ).setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
+    function saveFile(fileData) {
+      const blob = Utilities.newBlob(
+        Utilities.base64Decode(fileData.data),
+        fileData.mimeType,
+        fileData.fileName
+      );
+      const folder = DriveApp.getFolderById(FOLDER_ID);
+      const file = folder.createFile(blob);
+      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      return file.getUrl();
+    }
+
+    function appendToGoogleSheet(data, sheet) {
+      const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+      if (headers.length === 0 || headers[0] === "") {
+        const newHeaders = Object.keys(data);
+        sheet.getRange(1, 1, 1, newHeaders.length).setValues([newHeaders]);
+        headers = newHeaders;
+      }
+      const rowData = headers.map((header) => data[header] || "");
+      sheet.appendRow(rowData);
+    }
+
+    ----------------------------------------------------------------
+
+    Langkah 3: Deploy Script
+    1. Hapus deployment lama jika ada (Deploy > Manage deployments > Archive).
+    2. Buat deployment baru (Deploy > New deployment).
+    3. Tipe: "Web app", Execute as: "Me", Who has access: "Anyone".
+    4. Klik "Deploy", berikan izin akses ke Drive saat diminta, lalu salin URL Web app yang BARU.
+
+    Langkah 4: Hubungkan ke JavaScript
+    1. Di kode HTML di bawah, cari `const scriptURL`.
+    2. Ganti placeholder dengan URL Web app yang BARU Anda dapatkan.
+    ================================================================
+    -->
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const form = document.getElementById("bimbelForm");
+        const submitButton = document.getElementById("submitButton");
+        const buttonText = document.getElementById("buttonText");
+        const buttonSpinner = document.getElementById("buttonSpinner");
+        const formMessage = document.getElementById("formMessage");
         const noWhatsappInput = document.getElementById("noWhatsapp");
         const whatsappError = document.getElementById("whatsappError");
         const paymentProofInput = document.getElementById("paymentProof");
+        const downloadQrisBtn = document.getElementById("downloadQrisBtn");
+
+        // GANTI DENGAN URL GOOGLE APPS SCRIPT ANDA YANG BARU
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbwBDJJshNpON5yl8PxbA6paONBD2Rssv9ANRxWKPppm2XJXD04-fQY3lAdf1ofemUT7/exec";
+
+        // QRIS Download Logic
+        downloadQrisBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const link = document.createElement("a");
+          link.href = e.currentTarget.href;
+          link.download = "QRIS-Pembayaran-Bimbel-SKB.png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
 
         // File Input Logic
         const fileNameLabel = document.getElementById("paymentFileName");
@@ -300,29 +461,107 @@
           }
         });
 
-        // Client-side validation before Netlify submission
-        form.addEventListener("submit", function (e) {
-          let isValid = true;
+        // Function to convert file to base64
+        async function fileToBase64(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const data = e.target.result.split(",");
+              const obj = {
+                fileName: file.name,
+                mimeType: data[0].match(/:(\w.+);/)[1],
+                data: data[1],
+              };
+              resolve(obj);
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          });
+        }
 
-          // WhatsApp validation
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
           if (!/^(^\+62|62|08)(\d{8,15})$/.test(noWhatsappInput.value)) {
             whatsappError.classList.remove("hidden");
             noWhatsappInput.focus();
-            isValid = false;
+            return;
           } else {
             whatsappError.classList.add("hidden");
           }
 
-          // File validation
           if (paymentProofInput.files.length === 0) {
-            alert("Mohon unggah bukti pembayaran Anda.");
-            isValid = false;
+            displayMessage("error", "Mohon unggah bukti pembayaran Anda.");
+            return;
           }
 
-          if (!isValid) {
-            e.preventDefault(); // Stop submission if validation fails
+          setLoading(true);
+
+          try {
+            const formData = new FormData(this);
+            const formDataObj = {};
+            for (let [key, value] of formData.entries()) {
+              if (key !== "Bukti_Pembayaran_File") {
+                // Exclude the file input from this loop
+                formDataObj[key] = value;
+              }
+            }
+
+            if (paymentProofInput.files.length > 0) {
+              const fileObj = await fileToBase64(paymentProofInput.files[0]);
+              formDataObj.fileData = fileObj;
+            }
+
+            const response = await fetch(scriptURL, {
+              method: "POST",
+              body: JSON.stringify(formDataObj),
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+            });
+
+            const data = await response.json();
+            if (data.status === "success") {
+              displayMessage(
+                "success",
+                "Pendaftaran berhasil! Informasi selanjutnya akan kami kirimkan ke nomor WhatsApp Anda."
+              );
+              form.reset();
+              fileNameLabel.textContent = originalText;
+            } else {
+              throw new Error(data.message || "Terjadi kesalahan.");
+            }
+          } catch (error) {
+            console.error("Error!", error);
+            displayMessage("error", `Pendaftaran gagal: ${error.message}`);
+          } finally {
+            setLoading(false);
           }
         });
+
+        function setLoading(isLoading) {
+          submitButton.disabled = isLoading;
+          if (isLoading) {
+            buttonText.classList.add("hidden");
+            buttonSpinner.classList.remove("hidden");
+            submitButton.classList.add("opacity-75", "cursor-not-allowed");
+          } else {
+            buttonText.classList.remove("hidden");
+            buttonSpinner.classList.add("hidden");
+            submitButton.classList.remove("opacity-75", "cursor-not-allowed");
+          }
+        }
+
+        function displayMessage(type, message) {
+          formMessage.innerHTML = message;
+          formMessage.className = "mt-6 text-center p-4 rounded-lg";
+          if (type === "success") {
+            formMessage.classList.add("bg-green-500/30", "text-green-200");
+          } else {
+            formMessage.classList.add("bg-red-500/30", "text-red-200");
+          }
+          setTimeout(() => {
+            formMessage.classList.add("hidden");
+          }, 6000);
+        }
       });
     </script>
   </body>

@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran Bimbel SKB STMKG - SpeedU</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0b77ec; /* Fallback color */
+        background-image: linear-gradient(135deg, #0b77ec 0%, #0056b3 100%);
+        color: #ffffff;
+      }
+      .content-card {
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1.5rem; /* 24px */
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.3);
+      }
+      /* Custom Radio Button Styles */
+      .radio-jurusan input[type="radio"] {
+        display: none;
+      }
+      .radio-jurusan label {
+        display: block;
+        padding: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-weight: 600;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .radio-jurusan input[type="radio"]:checked + label {
+        background-color: #facc15;
+        color: #1e293b;
+        border-color: #facc15;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(250, 204, 21, 0.4);
+      }
+      /* Hide default file input */
+      input[type="file"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div class="container mx-auto px-4 py-12 md:py-20">
+      <!-- Header Section -->
+      <header class="text-center mb-12">
+        <img
+          src="https://placehold.co/260x130/transparent/FFFFFF?text=LOGO+ANDA"
+          alt="Logo SPEEDU"
+          class="mx-auto h-24 mb-6"
+        />
+        <h1
+          class="text-4xl md:text-6xl font-black mb-3 text-white uppercase tracking-tight"
+        >
+          Mastering Physics for SKB STMKG
+        </h1>
+        <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+          Pembahasan mendalam materi Fisika SKB STMKG berdasarkan FR tahun lalu
+          untuk menguasai fisika lebih dari peserta lain.
+        </p>
+      </header>
+
+      <!-- Flyer Section -->
+      <section id="flyer" class="w-full max-w-2xl mx-auto mb-12">
+        <div class="content-card p-4">
+          <img
+            src="https://placehold.co/1200x800/0b77ec/FFFFFF?text=FLYER+BIMBEL+ANDA"
+            alt="Flyer Bimbel SKB STMKG"
+            class="rounded-xl w-full h-auto object-cover"
+            onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0b77ec/FFFFFF?text=Gambar+Tidak+Tersedia';"
+          />
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="max-w-4xl mx-auto mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+          <div class="content-card p-6">
+            <i class="fas fa-user-graduate text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Pengajar Taruna Aktif</h3>
+            <p class="text-sm text-gray-300">Berpengalaman 2 tahun lebih.</p>
+          </div>
+          <div class="content-card p-6">
+            <i class="fas fa-comments text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Grup Diskusi & Konsultasi</h3>
+            <p class="text-sm text-gray-300">Gratis konsultasi sampai lulus.</p>
+          </div>
+          <div class="content-card p-6">
+            <i class="fas fa-video text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Online Zoom & Rekaman</h3>
+            <p class="text-sm text-gray-300">
+              90 menit per sesi, plus rekaman.
+            </p>
+          </div>
+          <div class="content-card p-6">
+            <i class="fas fa-file-alt text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Free 3x Try Out SKB</h3>
+            <p class="text-sm text-gray-300">Berbasis CAT sesuai FR.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Payment Section -->
+      <section class="max-w-2xl mx-auto mb-12">
+        <div class="content-card p-8 text-center">
+          <h2 class="text-3xl font-bold text-white mb-4">
+            Investasi Pendidikanmu
+          </h2>
+          <p class="text-gray-300 mb-6">
+            Lakukan pembayaran untuk mengamankan slotmu di bimbel SKB STMKG.
+          </p>
+
+          <!-- QRIS Image -->
+          <div class="max-w-xs mx-auto mb-4">
+            <img
+              src="https://placehold.co/400x400/FFFFFF/0b77ec?text=Letakkan+QRIS+Anda+di+Sini"
+              alt="QRIS Pembayaran"
+              class="rounded-lg w-full"
+            />
+          </div>
+          <a
+            id="downloadQrisBtn"
+            href="https://placehold.co/400x400/FFFFFF/0b77ec?text=Letakkan+QRIS+Anda+di+Sini"
+            class="inline-block mb-6 text-yellow-300 hover:text-yellow-400 text-sm"
+            ><i class="fas fa-download mr-1"></i> Unduh Kode QRIS</a
+          >
+
+          <!-- Price -->
+          <div class="mb-6">
+            <p class="text-lg text-gray-300">Harga Program:</p>
+            <p class="text-5xl font-black text-white tracking-tight">
+              Rp 200.000
+            </p>
+          </div>
+
+          <!-- Cashback Info -->
+          <div class="bg-yellow-400 text-blue-900 p-4 rounded-lg">
+            <h3 class="font-bold text-lg">
+              <i class="fas fa-gift mr-2"></i>PROMO SPESIAL!
+            </h3>
+            <p class="mt-1">
+              Dapatkan <strong>Cashback 50RB</strong> dengan mengajak 1 teman!
+              Kirim bukti pendaftaran temanmu ke Admin di
+              <a
+                href="https://wa.me/6289666444301"
+                target="_blank"
+                class="font-bold underline"
+                >WhatsApp 089666444301</a
+              >.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Registration Form -->
+      <main class="max-w-2xl mx-auto">
+        <div class="content-card p-8 md:p-12">
+          <h2 class="text-3xl font-bold text-center mb-8 text-white">
+            Formulir Pendaftaran
+          </h2>
+          <form id="bimbelForm" class="space-y-6">
+            <!-- Data Diri -->
+            <div>
+              <label
+                for="fullName"
+                class="block mb-2 font-semibold text-gray-200"
+                >Nama Lengkap</label
+              >
+              <input
+                type="text"
+                id="fullName"
+                name="Nama"
+                class="w-full p-3 bg-black/30 border-2 border-white/30 text-white rounded-lg focus:bg-black/40 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Tulis nama lengkap Anda..."
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="noWhatsapp"
+                class="block mb-2 font-semibold text-gray-200"
+                >No. WA Aktif</label
+              >
+              <input
+                type="tel"
+                id="noWhatsapp"
+                name="No_Whatsapp"
+                class="w-full p-3 bg-black/30 border-2 border-white/30 text-white rounded-lg focus:bg-black/40 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Contoh: 08123456789"
+                required
+              />
+              <p id="whatsappError" class="text-yellow-300 text-xs mt-2 hidden">
+                Mohon masukkan nomor Indonesia yang valid.
+              </p>
+            </div>
+
+            <!-- Pilihan Jurusan -->
+            <div>
+              <label class="block mb-3 font-semibold text-gray-200"
+                >Jurusan STMKG yang Dipilih</label
+              >
+              <div class="radio-jurusan grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-meteo"
+                    name="Jurusan"
+                    value="Meteorologi"
+                    required
+                  /><label for="jurusan-meteo"
+                    ><i class="fas fa-wind mr-2"></i>Meteorologi</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-klim"
+                    name="Jurusan"
+                    value="Klimatologi"
+                  /><label for="jurusan-klim"
+                    ><i class="fas fa-cloud-sun-rain mr-2"></i
+                    >Klimatologi</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-geo"
+                    name="Jurusan"
+                    value="Geofisika"
+                  /><label for="jurusan-geo"
+                    ><i class="fas fa-mountain-sun mr-2"></i>Geofisika</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-ins"
+                    name="Jurusan"
+                    value="Instrumentasi"
+                  /><label for="jurusan-ins"
+                    ><i class="fas fa-satellite-dish mr-2"></i
+                    >Instrumentasi</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Harapan -->
+            <div>
+              <label
+                for="harapan"
+                class="block mb-2 font-semibold text-gray-200"
+                >Harapan Mengikuti Bimbel</label
+              >
+              <textarea
+                id="harapan"
+                name="Harapan"
+                rows="4"
+                class="w-full p-3 bg-black/30 border-2 border-white/30 text-white rounded-lg focus:bg-black/40 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Apa yang ingin kamu capai dari bimbel ini?"
+              ></textarea>
+            </div>
+
+            <!-- Bukti Pembayaran -->
+            <div>
+              <label class="block mb-2 font-semibold text-gray-200"
+                >Bukti Pembayaran</label
+              >
+              <label
+                for="paymentProof"
+                class="w-full cursor-pointer bg-black/30 border-2 border-dashed border-white/30 text-gray-300 rounded-lg flex flex-col items-center justify-center p-6 hover:bg-black/40 transition"
+              >
+                <i class="fas fa-cloud-arrow-up text-4xl mb-3"></i>
+                <span id="paymentFileName" class="font-semibold"
+                  >Unggah Bukti Pembayaran</span
+                >
+                <span class="text-xs text-gray-400 mt-1"
+                  >PNG, JPG (MAX. 5MB)</span
+                >
+              </label>
+              <input
+                type="file"
+                id="paymentProof"
+                name="Bukti_Pembayaran_File"
+                accept="image/*"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              id="submitButton"
+              class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-lg px-5 py-4 text-center transition duration-300 ease-in-out transform hover:scale-105"
+            >
+              <span id="buttonText">KIRIM PENDAFTARAN</span>
+              <span id="buttonSpinner" class="hidden"
+                ><i class="fas fa-spinner fa-spin mr-2"></i>Mengirim...</span
+              >
+            </button>
+          </form>
+          <div
+            id="formMessage"
+            class="mt-6 text-center p-4 rounded-lg hidden"
+          ></div>
+        </div>
+      </main>
+    </div>
+
+    <!-- 
+    ================================================================
+    PETUNJUK GOOGLE APPS SCRIPT (METODE BASE64)
+    ================================================================
+    
+    Langkah 1: Buat Google Sheet & Folder Google Drive
+    1. Buat Google Sheet baru.
+    2. Di baris pertama, buat header kolom **PERSIS** seperti ini:
+       `Timestamp`, `Nama`, `No_Whatsapp`, `Jurusan`, `Harapan`, `Link_Bukti_Pembayaran`
+    3. Buat folder baru di Google Drive (misal: "Bukti Bayar Bimbel SKB").
+    4. Salin ID Folder dari URL.
+
+    Langkah 2: Buat Google Apps Script
+    1. Di Google Sheet, buka Ekstensi > Apps Script.
+    2. Hapus semua kode contoh, lalu salin dan tempel kode di bawah ini.
+    3. Ganti `'GANTI_DENGAN_ID_FOLDER_ANDA'` dengan ID Folder Google Drive Anda.
+    
+    ----------------------------------------------------------------
+    
+    const FOLDER_ID = 'GANTI_DENGAN_ID_FOLDER_ANDA';
+    const SHEET_NAME = "Sheet1";
+
+    function doPost(e) {
+      try {
+        const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+        if (!sheet) {
+          throw new Error(`Sheet '${SHEET_NAME}' not found`);
+        }
+        
+        const formData = JSON.parse(e.postData.contents);
+        
+        let fileUrl = "Tidak ada file diunggah";
+        if (formData.fileData) {
+          fileUrl = saveFile(formData.fileData);
+        }
+        
+        const rowData = {
+          Timestamp: new Date(),
+          Nama: formData.Nama,
+          No_Whatsapp: formData.No_Whatsapp,
+          Jurusan: formData.Jurusan,
+          Harapan: formData.Harapan,
+          Link_Bukti_Pembayaran: fileUrl
+        };
+        
+        appendToGoogleSheet(rowData, sheet);
+        
+        return ContentService.createTextOutput(
+          JSON.stringify({ status: "success", message: "Pendaftaran berhasil!" })
+        ).setMimeType(ContentService.MimeType.JSON);
+        
+      } catch (error) {
+        return ContentService.createTextOutput(
+          JSON.stringify({ status: "error", message: error.toString() })
+        ).setMimeType(ContentService.MimeType.JSON);
+      }
+    }
+
+    function saveFile(fileData) {
+      const blob = Utilities.newBlob(
+        Utilities.base64Decode(fileData.data),
+        fileData.mimeType,
+        fileData.fileName
+      );
+      const folder = DriveApp.getFolderById(FOLDER_ID);
+      const file = folder.createFile(blob);
+      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
+      return file.getUrl();
+    }
+
+    function appendToGoogleSheet(data, sheet) {
+      const headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+      if (headers.length === 0 || headers[0] === "") {
+        const newHeaders = Object.keys(data);
+        sheet.getRange(1, 1, 1, newHeaders.length).setValues([newHeaders]);
+        headers = newHeaders;
+      }
+      const rowData = headers.map((header) => data[header] || "");
+      sheet.appendRow(rowData);
+    }
+
+    ----------------------------------------------------------------
+
+    Langkah 3: Deploy Script
+    1. Hapus deployment lama jika ada (Deploy > Manage deployments > Archive).
+    2. Buat deployment baru (Deploy > New deployment).
+    3. Tipe: "Web app", Execute as: "Me", Who has access: "Anyone".
+    4. Klik "Deploy", berikan izin akses ke Drive saat diminta, lalu salin URL Web app yang BARU.
+
+    Langkah 4: Hubungkan ke JavaScript
+    1. Di kode HTML di bawah, cari `const scriptURL`.
+    2. Ganti placeholder dengan URL Web app yang BARU Anda dapatkan.
+    ================================================================
+    -->
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("bimbelForm");
+        const submitButton = document.getElementById("submitButton");
+        const buttonText = document.getElementById("buttonText");
+        const buttonSpinner = document.getElementById("buttonSpinner");
+        const formMessage = document.getElementById("formMessage");
+        const noWhatsappInput = document.getElementById("noWhatsapp");
+        const whatsappError = document.getElementById("whatsappError");
+        const paymentProofInput = document.getElementById("paymentProof");
+        const downloadQrisBtn = document.getElementById("downloadQrisBtn");
+
+        // GANTI DENGAN URL GOOGLE APPS SCRIPT ANDA YANG BARU
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbwBDJJshNpON5yl8PxbA6paONBD2Rssv9ANRxWKPppm2XJXD04-fQY3lAdf1ofemUT7/exec";
+
+        // QRIS Download Logic
+        downloadQrisBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const link = document.createElement("a");
+          link.href = e.currentTarget.href;
+          link.download = "QRIS-Pembayaran-Bimbel-SKB.png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+
+        // File Input Logic
+        const fileNameLabel = document.getElementById("paymentFileName");
+        const originalText = fileNameLabel.textContent;
+        paymentProofInput.addEventListener("change", () => {
+          if (paymentProofInput.files.length > 0) {
+            fileNameLabel.textContent = paymentProofInput.files[0].name;
+          } else {
+            fileNameLabel.textContent = originalText;
+          }
+        });
+
+        // Function to convert file to base64
+        async function fileToBase64(file) {
+          return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const data = e.target.result.split(",");
+              const obj = {
+                fileName: file.name,
+                mimeType: data[0].match(/:(\w.+);/)[1],
+                data: data[1],
+              };
+              resolve(obj);
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          });
+        }
+
+        form.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          if (!/^(^\+62|62|08)(\d{8,15})$/.test(noWhatsappInput.value)) {
+            whatsappError.classList.remove("hidden");
+            noWhatsappInput.focus();
+            return;
+          } else {
+            whatsappError.classList.add("hidden");
+          }
+
+          if (paymentProofInput.files.length === 0) {
+            displayMessage("error", "Mohon unggah bukti pembayaran Anda.");
+            return;
+          }
+
+          setLoading(true);
+
+          try {
+            const formData = new FormData(this);
+            const formDataObj = {};
+            for (let [key, value] of formData.entries()) {
+              if (key !== "Bukti_Pembayaran_File") {
+                // Exclude the file input from this loop
+                formDataObj[key] = value;
+              }
+            }
+
+            if (paymentProofInput.files.length > 0) {
+              const fileObj = await fileToBase64(paymentProofInput.files[0]);
+              formDataObj.fileData = fileObj;
+            }
+
+            const response = await fetch(scriptURL, {
+              method: "POST",
+              body: JSON.stringify(formDataObj),
+              headers: { "Content-Type": "text/plain;charset=utf-8" },
+            });
+
+            const data = await response.json();
+            if (data.status === "success") {
+              displayMessage(
+                "success",
+                "Pendaftaran berhasil! Informasi selanjutnya akan kami kirimkan ke nomor WhatsApp Anda."
+              );
+              form.reset();
+              fileNameLabel.textContent = originalText;
+            } else {
+              throw new Error(data.message || "Terjadi kesalahan.");
+            }
+          } catch (error) {
+            console.error("Error!", error);
+            displayMessage("error", `Pendaftaran gagal: ${error.message}`);
+          } finally {
+            setLoading(false);
+          }
+        });
+
+        function setLoading(isLoading) {
+          submitButton.disabled = isLoading;
+          if (isLoading) {
+            buttonText.classList.add("hidden");
+            buttonSpinner.classList.remove("hidden");
+            submitButton.classList.add("opacity-75", "cursor-not-allowed");
+          } else {
+            buttonText.classList.remove("hidden");
+            buttonSpinner.classList.add("hidden");
+            submitButton.classList.remove("opacity-75", "cursor-not-allowed");
+          }
+        }
+
+        function displayMessage(type, message) {
+          formMessage.innerHTML = message;
+          formMessage.className = "mt-6 text-center p-4 rounded-lg";
+          if (type === "success") {
+            formMessage.classList.add("bg-green-500/30", "text-green-200");
+          } else {
+            formMessage.classList.add("bg-red-500/30", "text-red-200");
+          }
+          setTimeout(() => {
+            formMessage.classList.add("hidden");
+          }, 6000);
+        }
+      });
+    </script>
+  </body>
+</html>
