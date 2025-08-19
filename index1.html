@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran Workshop: Bahas Soal SKB STMKG</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0d47a1; /* Warna biru lebih gelap, disesuaikan dengan poster */
+        color: #ffffff;
+      }
+      .fade-in-scroll {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      }
+      .fade-in-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .content-card {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(0, 0, 0, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      input[type="file"] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <div class="container mx-auto px-6 py-12 md:py-20">
+      <!-- Logo Section -->
+      <div class="text-center mb-8">
+        <img src="LOGO SPEEDU (6).png" alt="Logo SPEEDU" class="mx-auto h-32" />
+      </div>
+
+      <header class="text-center mb-16">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight text-white"
+        >
+          Workshop: Bahas Soal SKB STMKG
+        </h1>
+        <p class="text-lg text-gray-200 max-w-3xl mx-auto">
+          Ikuti workshop gratis kami untuk membahas soal-soal SKB STMKG (Fisika,
+          Matematika, Bahasa Inggris) dan dapatkan strategi jitu untuk lulus!
+        </p>
+      </header>
+
+      <main class="flex flex-col items-center gap-12 md:gap-16">
+        <section id="flyer" class="w-full max-w-3xl fade-in-scroll">
+          <div class="content-card p-4 rounded-2xl shadow-2xl">
+            <img
+              id="workshopFlyer"
+              src="POSTER WORKSHOP.png"
+              alt="Flyer Workshop SKB STMKG"
+              class="rounded-xl w-full h-auto object-cover"
+              onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0d47a1/FFFFFF?text=Gambar+Tidak+Tersedia';"
+            />
+            <div class="text-center mt-4">
+              <a
+                id="downloadFlyerBtn"
+                href="#"
+                class="inline-block mt-2 px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded-lg hover:bg-yellow-500 transition-colors shadow-lg"
+              >
+                <i class="fas fa-download mr-2"></i> Unduh Flyer
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section id="details" class="w-full max-w-3xl fade-in-scroll">
+          <div class="content-card p-8 rounded-2xl shadow-2xl">
+            <h2 class="text-3xl font-bold text-white mb-6">Detail Acara</h2>
+            <div class="space-y-4 text-gray-200 text-lg">
+              <p>
+                <i class="fas fa-calendar-alt w-6 mr-3 text-yellow-400"></i>
+                <strong class="font-semibold">Tanggal:</strong> Minggu, 27 Juli
+                2025
+              </p>
+              <p>
+                <i class="fas fa-clock w-6 mr-3 text-yellow-400"></i>
+                <strong class="font-semibold">Waktu:</strong> 20:00 - 22:00 WIB
+              </p>
+              <p>
+                <i class="fas fa-video w-6 mr-3 text-yellow-400"></i>
+                <strong class="font-semibold">Platform:</strong> Zoom Meeting
+              </p>
+              <p>
+                <i class="fas fa-user-tie w-6 mr-3 text-yellow-400"></i>
+                <strong class="font-semibold">Pemateri 1:</strong> Dzaki Mufrih
+                (Taruna STMKG Semester 8)
+              </p>
+              <p>
+                <i class="fas fa-user-tie w-6 mr-3 text-yellow-400"></i>
+                <strong class="font-semibold">Pemateri 2:</strong> Dwi Indra P
+                (Pengajar Bimbel Kedinasan SPEEDU)
+              </p>
+              <div>
+                <p class="font-semibold mt-6 mb-2">
+                  <i class="fas fa-check-circle w-6 mr-3 text-yellow-400"></i
+                  >Key Service:
+                </p>
+                <ul class="list-disc list-inside ml-4 space-y-2">
+                  <li>Materi Singkat SKB STMKG</li>
+                  <li>Gambaran Soal SKB STMKG</li>
+                  <li>Trick Jawab Soal SKB STMKG</li>
+                  <li>Strategi Tes SKB STMKG</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="registration" class="w-full max-w-3xl fade-in-scroll">
+          <div class="content-card p-8 rounded-2xl shadow-2xl">
+            <h2 class="text-3xl font-bold text-center mb-6 text-white">
+              Daftar Sekarang! (Gratis & Tanpa Syarat)
+            </h2>
+
+            <form id="registrationForm" class="space-y-6">
+              <div>
+                <label
+                  for="fullName"
+                  class="block mb-2 text-sm font-medium text-gray-200"
+                  >Nama Lengkap</label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
+                  placeholder="contoh: Budi Hartono"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  for="whatsappNumber"
+                  class="block mb-2 text-sm font-medium text-gray-200"
+                  >Nomor WhatsApp</label
+                >
+                <input
+                  type="tel"
+                  id="whatsappNumber"
+                  name="whatsappNumber"
+                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
+                  placeholder="+628123456789"
+                  required
+                />
+              </div>
+
+              <div>
+                <label class="block mb-2 text-sm font-medium text-gray-200"
+                  >Request Soal Untuk Dibahas (Opsional)</label
+                >
+                <label
+                  for="requestSoal"
+                  class="w-full cursor-pointer bg-gray-900/50 border border-dashed border-gray-500 text-gray-400 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 flex items-center justify-center p-4 hover:bg-gray-800/50"
+                >
+                  <i class="fas fa-upload mr-3"></i>
+                  <span id="requestSoalFileName"
+                    >Unggah Gambar Soal Di Sini</span
+                  >
+                </label>
+                <input
+                  type="file"
+                  id="requestSoal"
+                  name="requestSoal"
+                  accept="image/*"
+                />
+              </div>
+
+              <div>
+                <label
+                  for="confidenceLevel"
+                  class="block mb-2 text-sm font-medium text-gray-200"
+                  >Tingkat Keyakinan Lulus SKB STMKG:
+                  <span id="confidenceValue" class="font-bold text-yellow-400"
+                    >50%</span
+                  ></label
+                >
+                <input
+                  id="confidenceLevel"
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  name="confidenceLevel"
+                  class="w-full h-2 bg-gray-900/50 rounded-lg appearance-none cursor-pointer"
+                />
+              </div>
+              <div>
+                <label
+                  for="expectedScore"
+                  class="block mb-2 text-sm font-medium text-gray-200"
+                  >Target Skor SKB</label
+                >
+                <input
+                  type="number"
+                  id="expectedScore"
+                  name="expectedScore"
+                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
+                  placeholder="contoh: 80"
+                  required
+                />
+              </div>
+
+              <button
+                type="submit"
+                id="submitButton"
+                class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-md px-5 py-3 text-center transition duration-300 ease-in-out transform hover:scale-105"
+              >
+                <span id="buttonText">Daftarkan Saya ke Workshop</span>
+                <i id="buttonSpinner" class="fas fa-spinner fa-spin hidden"></i>
+              </button>
+            </form>
+
+            <div
+              id="formMessage"
+              class="mt-4 text-center p-4 rounded-lg hidden"
+            ></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="text-center mt-20 text-gray-200 text-sm">
+        <p>&copy; 2025 SPEEDU. Hak cipta dilindungi.</p>
+        <p class="mt-2">
+          Ada pertanyaan?
+          <a
+            href="https://wa.me/628966644301?text=Halo, saya ingin bertanya tentang workshop SKB STMKG."
+            target="_blank"
+            class="font-semibold text-yellow-300 hover:underline"
+            >Hubungi kami di WhatsApp</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("registrationForm");
+        const submitButton = document.getElementById("submitButton");
+        const buttonText = document.getElementById("buttonText");
+        const buttonSpinner = document.getElementById("buttonSpinner");
+        const formMessage = document.getElementById("formMessage");
+        const downloadFlyerBtn = document.getElementById("downloadFlyerBtn");
+        const flyerImage = document.getElementById("workshopFlyer");
+
+        // GOOGLE APPS SCRIPT URL - GANTI DENGAN URL ANDA
+        const scriptURL =
+          "https://script.google.com/macros/s/AKfycbwTLn6JFwlQ13e5Ya0uS5D2EXzDNRO5QCfqzG34oFIrQjqV84PnA7uo4k81dG-TBjo/exec";
+
+        // --- Download Flyer Logic ---
+        downloadFlyerBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          const link = document.createElement("a");
+          link.href = flyerImage.src;
+          link.download = "Flyer-Workshop-STMKG.png";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+
+        // --- File Input Logic ---
+        function setupFileInput(inputId, labelId) {
+          const fileInput = document.getElementById(inputId);
+          const fileNameLabel = document.getElementById(labelId);
+          const originalText = fileNameLabel.textContent;
+
+          fileInput.addEventListener("change", () => {
+            if (fileInput.files.length > 0) {
+              fileNameLabel.textContent = fileInput.files[0].name;
+            } else {
+              fileNameLabel.textContent = originalText;
+            }
+          });
+        }
+        setupFileInput("requestSoal", "requestSoalFileName");
+
+        // --- General Form Logic ---
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("visible");
+            });
+          },
+          { threshold: 0.1 }
+        );
+        document
+          .querySelectorAll(".fade-in-scroll")
+          .forEach((el) => observer.observe(el));
+
+        const confidenceSlider = document.getElementById("confidenceLevel");
+        const confidenceValue = document.getElementById("confidenceValue");
+        confidenceSlider.addEventListener("input", (e) => {
+          confidenceValue.textContent = `${e.target.value}%`;
+        });
+
+        // --- Form Submission ---
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          setLoading(true);
+
+          const formData = new FormData(form);
+
+          fetch(scriptURL, { method: "POST", body: formData })
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.result === "success") {
+                const successMessageHTML = `
+                      <p class="text-lg">Pendaftaran Berhasil!</p>
+                      <p class="mt-2 text-gray-300">Link Zoom akan dikirim H-1 sebelum acara ke nomor WhatsApp Anda.</p>
+                      <p class="mt-4 font-semibold">Jangan sampai ketinggalan info & pembahasan soal. Yuk gabung komunitas kami!</p>
+                      <a href="https://t.me/diskusispeedu" target="_blank" class="inline-block mt-4 px-6 py-2 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-lg">
+                          <i class="fab fa-telegram-plane mr-2"></i> Gabung Grup Telegram
+                      </a>`;
+                displayMessage("success", successMessageHTML);
+                form.reset();
+                document.getElementById("requestSoalFileName").textContent =
+                  "Unggah Gambar Soal Di Sini";
+                confidenceValue.textContent = "50%";
+              } else {
+                throw new Error(
+                  data.message || "Terjadi kesalahan tidak diketahui."
+                );
+              }
+            })
+            .catch((error) => {
+              console.error("Error!", error.message);
+              displayMessage(
+                "error",
+                `Pendaftaran gagal. Pastikan URL Script sudah benar. Error: ${error.message}`
+              );
+            })
+            .finally(() => {
+              setLoading(false);
+            });
+        });
+
+        function setLoading(isLoading) {
+          submitButton.disabled = isLoading;
+          buttonText.classList.toggle("hidden", isLoading);
+          buttonSpinner.classList.toggle("hidden", !isLoading);
+        }
+
+        function displayMessage(type, message) {
+          formMessage.innerHTML = message;
+          formMessage.className = "mt-4 text-center p-6 rounded-lg";
+          if (type === "success") {
+            formMessage.classList.add("bg-green-500/30", "text-white");
+          } else {
+            formMessage.classList.add("bg-red-500/30", "text-red-200");
+          }
+          if (type !== "success") {
+            setTimeout(() => {
+              formMessage.classList.add("hidden");
+            }, 8000);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

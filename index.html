@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pendaftaran Webinar: Kenapa Banyak Orang Gagal Tes SKD</title>
+    <title>Pendaftaran Bimbel SKB STMKG - SpeedU</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <!-- Font Awesome for Icons -->
@@ -21,42 +21,39 @@
     <style>
       body {
         font-family: "Inter", sans-serif;
-        background-color: #0068e1; /* Warna biru utama */
+        background-color: #0b77ec; /* Fallback color */
+        background-image: linear-gradient(135deg, #0b77ec 0%, #0056b3 100%);
         color: #ffffff;
       }
-      .fade-in-scroll {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-      }
-      .fade-in-scroll.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      /* Custom styles for range slider */
-      input[type="range"]::-webkit-slider-thumb {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 24px;
-        height: 24px;
-        background: #facc15; /* yellow-400 */
-        cursor: pointer;
-        border-radius: 50%;
-        margin-top: -8px;
-      }
-
-      input[type="range"]::-moz-range-thumb {
-        width: 24px;
-        height: 24px;
-        background: #facc15;
-        cursor: pointer;
-        border-radius: 50%;
-      }
       .content-card {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        background-color: rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 1.5rem; /* 24px */
+        box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.3);
+      }
+      /* Custom Radio Button Styles */
+      .radio-jurusan input[type="radio"] {
+        display: none;
+      }
+      .radio-jurusan label {
+        display: block;
+        padding: 1rem;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        font-weight: 600;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+      .radio-jurusan input[type="radio"]:checked + label {
+        background-color: #facc15;
+        color: #1e293b;
+        border-color: #facc15;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(250, 204, 21, 0.4);
       }
       /* Hide default file input */
       input[type="file"] {
@@ -65,596 +62,267 @@
     </style>
   </head>
   <body class="antialiased">
-    <div class="container mx-auto px-6 py-12 md:py-20">
-      <!-- Logo Section -->
-      <div class="text-center mb-8">
-        <img src="LOGO SPEEDU (6).png" alt="Logo SPEEDU" class="mx-auto h-32" />
-      </div>
-
+    <div class="container mx-auto px-4 py-12 md:py-20">
       <!-- Header Section -->
-      <header class="text-center mb-16">
+      <header class="text-center mb-12">
+        <img
+          src="https://placehold.co/260x130/transparent/FFFFFF?text=LOGO+ANDA"
+          alt="Logo SPEEDU"
+          class="mx-auto h-24 mb-6"
+        />
         <h1
-          class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight leading-tight text-white"
+          class="text-4xl md:text-6xl font-black mb-3 text-white uppercase tracking-tight"
         >
-          Kenapa Banyak Orang Gagal Tes SKD Sekolah Kedinasan
+          Mastering Physics for SKB STMKG
         </h1>
-        <p class="text-lg text-gray-200 max-w-3xl mx-auto">
-          Ikuti webinar gratis kami untuk mengungkap kesalahan kesalahan orang
-          saat menghadapi tes SKD Sekdin 2025
+        <p class="text-lg text-gray-200 max-w-2xl mx-auto">
+          Pembahasan mendalam materi Fisika SKB STMKG berdasarkan FR tahun lalu
+          untuk menguasai fisika lebih dari peserta lain.
         </p>
       </header>
 
-      <main class="flex flex-col items-center gap-12 md:gap-16">
-        <!-- Flyer Display -->
-        <section id="flyer" class="w-full max-w-3xl fade-in-scroll">
-          <div class="content-card p-4 rounded-2xl shadow-2xl">
-            <img
-              id="webinarFlyer"
-              src="POSTER SPEEDU.png"
-              alt="Flyer Webinar SKD"
-              class="rounded-xl w-full h-auto object-cover"
-              onerror="this.onerror=null;this.src='https://placehold.co/1200x800/004a9e/FFFFFF?text=Gambar+Tidak+Tersedia';"
-            />
-            <div class="text-center mt-4">
-              <a
-                id="downloadFlyerBtn"
-                href="#"
-                class="inline-block mt-2 px-6 py-3 bg-yellow-400 text-blue-900 font-bold rounded-lg hover:bg-yellow-500 transition-colors shadow-lg"
-              >
-                <i class="fas fa-download mr-2"></i> Unduh Flyer
-              </a>
-            </div>
+      <!-- Flyer Section -->
+      <section id="flyer" class="w-full max-w-2xl mx-auto mb-12">
+        <div class="content-card p-4">
+          <img
+            src="https://placehold.co/1200x800/0b77ec/FFFFFF?text=FLYER+BIMBEL+ANDA"
+            alt="Flyer Bimbel SKB STMKG"
+            class="rounded-xl w-full h-auto object-cover"
+            onerror="this.onerror=null;this.src='https://placehold.co/1200x800/0b77ec/FFFFFF?text=Gambar+Tidak+Tersedia';"
+          />
+        </div>
+      </section>
+
+      <!-- Benefits Section -->
+      <section class="max-w-4xl mx-auto mb-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+          <div class="content-card p-6">
+            <i class="fas fa-user-graduate text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Pengajar Taruna Aktif</h3>
+            <p class="text-sm text-gray-300">Berpengalaman 2 tahun lebih.</p>
           </div>
-        </section>
-
-        <!-- Event Details -->
-        <section id="details" class="w-full max-w-3xl fade-in-scroll">
-          <div class="content-card p-8 rounded-2xl shadow-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6">Detail Acara</h2>
-            <div class="space-y-4 text-gray-200 text-lg">
-              <p>
-                <i class="fas fa-calendar-alt w-6 mr-3 text-yellow-400"></i>
-                <strong class="font-semibold">Tanggal:</strong> Selasa, 1 Juli
-                2025
-              </p>
-              <p>
-                <i class="fas fa-clock w-6 mr-3 text-yellow-400"></i>
-                <strong class="font-semibold">Waktu:</strong> Mulai 19:30 WIB
-              </p>
-              <p>
-                <i class="fas fa-user-tie w-6 mr-3 text-yellow-400"></i>
-                <strong class="font-semibold">Moderator:</strong> Dwi Indra
-                (Taruna STMKG)
-              </p>
-              <p>
-                <i class="fas fa-user-tie w-6 mr-3 text-yellow-400"></i>
-                <strong class="font-semibold">SPECIAL GUEST:</strong> Dzaki
-                Mufrih (Taruna STMKG)
-              </p>
-              <div>
-                <p class="font-semibold mt-6 mb-2">
-                  <i class="fas fa-bullseye w-6 mr-3 text-yellow-400"></i>Topik
-                  Utama:
-                </p>
-                <ul class="list-disc list-inside ml-4 space-y-2">
-                  <li>Kesalahan Umum Penyebab Kegagalan Tes SKD</li>
-                  <li>Pembahasan Mendalam Soal Prediksi SKD 2025</li>
-                </ul>
-              </div>
-            </div>
+          <div class="content-card p-6">
+            <i class="fas fa-comments text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Grup Diskusi & Konsultasi</h3>
+            <p class="text-sm text-gray-300">Gratis konsultasi sampai lulus.</p>
           </div>
-        </section>
-
-        <!-- Syarat & Ketentuan Section -->
-        <section id="terms" class="w-full max-w-3xl fade-in-scroll">
-          <div class="content-card p-8 rounded-2xl shadow-2xl">
-            <h2 class="text-3xl font-bold text-white mb-6 text-center">
-              <i class="fas fa-clipboard-check mr-3 text-yellow-400"></i>
-              Syarat Mengikuti Webinar
-            </h2>
-            <div class="space-y-4 text-gray-200">
-              <ol class="list-none space-y-4">
-                <li class="flex items-start">
-                  <span
-                    class="bg-yellow-400 text-blue-900 rounded-full h-6 w-6 text-sm font-bold flex items-center justify-center mr-4 mt-1"
-                    >1</span
-                  >
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >Follow Akun TikTok:</strong
-                    >
-                    Wajib follow akun TikTok
-                    <a
-                      href="https://www.tiktok.com/@speedu.kedinasan"
-                      target="_blank"
-                      class="text-yellow-300 underline font-bold"
-                      >@speedu.kedinasan</a
-                    >.</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <span
-                    class="bg-yellow-400 text-blue-900 rounded-full h-6 w-6 text-sm font-bold flex items-center justify-center mr-4 mt-1"
-                    >2</span
-                  >
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >Unggah Flyer:</strong
-                    >
-                    Bagikan flyer webinar ini di Instagram Story atau TikTok
-                    Story Anda (tag akun kami).</span
-                  >
-                </li>
-                <li class="flex items-start">
-                  <span
-                    class="bg-yellow-400 text-blue-900 rounded-full h-6 w-6 text-sm font-bold flex items-center justify-center mr-4 mt-1"
-                    >3</span
-                  >
-                  <span
-                    ><strong class="font-semibold text-white"
-                      >Unggah Bukti:</strong
-                    >
-                    Siapkan screenshot dari kedua syarat di atas, lalu unggah
-                    pada formulir pendaftaran di bawah ini.</span
-                  >
-                </li>
-              </ol>
-            </div>
+          <div class="content-card p-6">
+            <i class="fas fa-video text-4xl text-yellow-300 mb-3"></i>
+            <h3 class="font-bold text-lg">Online Zoom & Rekaman</h3>
+            <p class="text-sm text-gray-300">
+              90 menit per sesi, plus rekaman.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <!-- Registration Form -->
-        <section id="registration" class="w-full max-w-3xl fade-in-scroll">
-          <div class="content-card p-8 rounded-2xl shadow-2xl">
-            <h2 class="text-3xl font-bold text-center mb-6 text-white">
-              Daftar Sekarang!
-            </h2>
-
-            <form id="registrationForm" class="space-y-6">
-              <!-- Personal Info -->
-              <div>
-                <label
-                  for="fullName"
-                  class="block mb-2 text-sm font-medium text-gray-200"
-                  >Nama Lengkap</label
-                >
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
-                  placeholder="contoh: Donny Jusuf"
-                  required
-                />
-              </div>
-              <div>
-                <label
-                  for="whatsappNumber"
-                  class="block mb-2 text-sm font-medium text-gray-200"
-                  >Nomor WhatsApp</label
-                >
-                <input
-                  type="tel"
-                  id="whatsappNumber"
-                  name="whatsappNumber"
-                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
-                  placeholder="+628123456789"
-                  required
-                />
-                <p
-                  id="whatsappError"
-                  class="text-yellow-300 text-xs mt-1 hidden"
-                >
-                  Mohon masukkan nomor Indonesia yang valid (cth: 08... atau
-                  +62...).
-                </p>
-              </div>
-
-              <!-- File Uploads -->
-              <div>
-                <label class="block mb-2 text-sm font-medium text-gray-200"
-                  >Bukti Upload Flyer di Story IG</label
-                >
-                <label
-                  for="igProof"
-                  class="w-full cursor-pointer bg-gray-900/50 border border-dashed border-gray-500 text-gray-400 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 flex items-center justify-center p-4 hover:bg-gray-800/50"
-                >
-                  <i class="fas fa-upload mr-3"></i>
-                  <span id="igFileName">Pilih atau Seret File ke Sini</span>
-                </label>
-                <input
-                  type="file"
-                  id="igProof"
-                  name="igProof"
-                  accept="image/*"
-                  required
-                />
-              </div>
-              <div>
-                <label class="block mb-2 text-sm font-medium text-gray-200"
-                  >Bukti Follow TikTok @speedu.kedinasan</label
-                >
-                <label
-                  for="tiktokProof"
-                  class="w-full cursor-pointer bg-gray-900/50 border border-dashed border-gray-500 text-gray-400 text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 flex items-center justify-center p-4 hover:bg-gray-800/50"
-                >
-                  <i class="fas fa-upload mr-3"></i>
-                  <span id="tiktokFileName">Pilih atau Seret File ke Sini</span>
-                </label>
-                <input
-                  type="file"
-                  id="tiktokProof"
-                  name="tiktokProof"
-                  accept="image/*"
-                  required
-                />
-              </div>
-
-              <!-- School and Score Info -->
-              <div>
-                <label
-                  for="sekolahKedinasan"
-                  class="block mb-2 text-sm font-medium text-gray-200"
-                  >Sekolah Kedinasan Pilihan</label
-                >
-                <select
-                  id="sekolahKedinasan"
-                  name="sekolahKedinasan"
-                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
-                >
-                  <option selected disabled>Pilih salah satu</option>
-                  <option value="IPDN">IPDN</option>
-                  <option value="STAN">STAN</option>
-                  <option value="STIN">STIN</option>
-                  <option value="Polstat STIS">Polstat STIS</option>
-                  <option value="STMKG">STMKG</option>
-                  <option value="Kemenhub">Kemenhub</option>
-                  <option value="Poltek SSN">Poltek SSN</option>
-                  <option value="Other">Lainnya...</option>
-                </select>
-              </div>
-              <div id="otherSekolahContainer" class="hidden">
-                <label
-                  for="otherSekolah"
-                  class="block mb-2 text-sm font-medium text-gray-200"
-                  >Sebutkan</label
-                >
-                <input
-                  type="text"
-                  id="otherSekolah"
-                  name="otherSekolah"
-                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
-                  placeholder="Masukkan nama sekolah"
-                />
-              </div>
-
-              <div>
-                <label
-                  for="confidenceLevel"
-                  class="block mb-2 text-sm font-medium text-gray-200"
-                  >Tingkat Keyakinan Lulus:
-                  <span id="confidenceValue" class="font-bold text-yellow-400"
-                    >50%</span
-                  ></label
-                >
-                <input
-                  id="confidenceLevel"
-                  type="range"
-                  min="0"
-                  max="100"
-                  value="50"
-                  name="confidenceLevel"
-                  class="w-full h-2 bg-gray-900/50 rounded-lg appearance-none cursor-pointer"
-                />
-              </div>
-
-              <div>
-                <label
-                  for="expectedScore"
-                  class="block mb-2 text-sm font-medium text-gray-200"
-                  >Target Skor SKD (0-550)</label
-                >
-                <input
-                  type="number"
-                  id="expectedScore"
-                  name="expectedScore"
-                  min="0"
-                  max="550"
-                  class="bg-gray-900/50 border border-gray-500 text-white text-sm rounded-lg focus:ring-yellow-500 focus:border-yellow-500 block w-full p-2.5"
-                  placeholder="contoh: 450"
-                  required
-                />
-                <p id="scoreError" class="text-yellow-300 text-xs mt-1 hidden">
-                  Skor harus antara 0 dan 550.
-                </p>
-              </div>
-
-              <!-- Submit Button -->
-              <button
-                type="submit"
-                id="submitButton"
-                class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-md px-5 py-3 text-center transition duration-300 ease-in-out transform hover:scale-105"
-              >
-                <span id="buttonText">Daftarkan Saya</span>
-                <i id="buttonSpinner" class="fas fa-spinner fa-spin hidden"></i>
-              </button>
-            </form>
-
-            <div
-              id="formMessage"
-              class="mt-4 text-center p-4 rounded-lg hidden"
-            ></div>
-          </div>
-        </section>
-      </main>
-
-      <!-- Footer -->
-      <footer class="text-center mt-20 text-gray-200 text-sm">
-        <p>&copy; 2025 SPEEDU. Hak cipta dilindungi.</p>
-        <p class="mt-2">
-          Ada pertanyaan?
-          <a
-            href="https://wa.me/628966644301?text=Halo, saya ingin bertanya tentang webinar SKD."
-            target="_blank"
-            class="font-semibold text-yellow-300 hover:underline"
-            >Hubungi kami di WhatsApp</a
+      <!-- Registration Form -->
+      <main class="max-w-2xl mx-auto">
+        <div class="content-card p-8 md:p-12">
+          <h2 class="text-3xl font-bold text-center mb-8 text-white">
+            Formulir Pendaftaran
+          </h2>
+          <!-- 
+            ================================================================
+            PETUNJUK INTEGRASI DENGAN NETLIFY FORMS
+            ================================================================
+            1. Atribut `data-netlify="true"` pada tag <form> akan mengaktifkan Netlify Forms.
+            2. `name="pendaftaran-bimbel"` adalah nama yang akan muncul di dashboard Netlify Anda.
+            3. `method="POST"` adalah metode pengiriman yang diperlukan.
+            4. Netlify akan secara otomatis mendeteksi input file dan menangani unggahannya.
+            5. Setelah di-deploy, semua data yang masuk akan terlihat di tab "Forms" pada situs Anda di Netlify.
+               Di sana, Anda akan melihat data teks dan sebuah link ke file yang diunggah.
+            ================================================================
+          -->
+          <form
+            name="pendaftaran-bimbel"
+            method="POST"
+            data-netlify="true"
+            class="space-y-6"
+            id="bimbelForm"
           >
-        </p>
-      </footer>
+            <!-- Data Diri -->
+            <div>
+              <label
+                for="fullName"
+                class="block mb-2 font-semibold text-gray-200"
+                >Nama Lengkap</label
+              >
+              <input
+                type="text"
+                id="fullName"
+                name="Nama"
+                class="w-full p-3 bg-black/30 border-2 border-white/30 text-white rounded-lg focus:bg-black/40 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Tulis nama lengkap Anda..."
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="noWhatsapp"
+                class="block mb-2 font-semibold text-gray-200"
+                >No. WA Aktif</label
+              >
+              <input
+                type="tel"
+                id="noWhatsapp"
+                name="No_Whatsapp"
+                class="w-full p-3 bg-black/30 border-2 border-white/30 text-white rounded-lg focus:bg-black/40 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Contoh: 08123456789"
+                required
+              />
+              <p id="whatsappError" class="text-yellow-300 text-xs mt-2 hidden">
+                Mohon masukkan nomor Indonesia yang valid.
+              </p>
+            </div>
+
+            <!-- Pilihan Jurusan -->
+            <div>
+              <label class="block mb-3 font-semibold text-gray-200"
+                >Jurusan STMKG yang Dipilih</label
+              >
+              <div class="radio-jurusan grid grid-cols-2 gap-4">
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-meteo"
+                    name="Jurusan"
+                    value="Meteorologi"
+                    required
+                  /><label for="jurusan-meteo"
+                    ><i class="fas fa-wind mr-2"></i>Meteorologi</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-klim"
+                    name="Jurusan"
+                    value="Klimatologi"
+                  /><label for="jurusan-klim"
+                    ><i class="fas fa-cloud-sun-rain mr-2"></i
+                    >Klimatologi</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-geo"
+                    name="Jurusan"
+                    value="Geofisika"
+                  /><label for="jurusan-geo"
+                    ><i class="fas fa-mountain-sun mr-2"></i>Geofisika</label
+                  >
+                </div>
+                <div>
+                  <input
+                    type="radio"
+                    id="jurusan-ins"
+                    name="Jurusan"
+                    value="Instrumentasi"
+                  /><label for="jurusan-ins"
+                    ><i class="fas fa-satellite-dish mr-2"></i
+                    >Instrumentasi</label
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Harapan -->
+            <div>
+              <label
+                for="harapan"
+                class="block mb-2 font-semibold text-gray-200"
+                >Harapan Mengikuti Bimbel</label
+              >
+              <textarea
+                id="harapan"
+                name="Harapan"
+                rows="4"
+                class="w-full p-3 bg-black/30 border-2 border-white/30 text-white rounded-lg focus:bg-black/40 focus:border-yellow-400 focus:ring-0 transition"
+                placeholder="Apa yang ingin kamu capai dari bimbel ini?"
+              ></textarea>
+            </div>
+
+            <!-- Bukti Pembayaran -->
+            <div>
+              <label class="block mb-2 font-semibold text-gray-200"
+                >Bukti Pembayaran</label
+              >
+              <label
+                for="paymentProof"
+                class="w-full cursor-pointer bg-black/30 border-2 border-dashed border-white/30 text-gray-300 rounded-lg flex flex-col items-center justify-center p-6 hover:bg-black/40 transition"
+              >
+                <i class="fas fa-cloud-arrow-up text-4xl mb-3"></i>
+                <span id="paymentFileName" class="font-semibold"
+                  >Unggah Bukti Pembayaran</span
+                >
+                <span class="text-xs text-gray-400 mt-1"
+                  >PNG, JPG (MAX. 5MB)</span
+                >
+              </label>
+              <input
+                type="file"
+                id="paymentProof"
+                name="Bukti_Pembayaran"
+                accept="image/*"
+                required
+              />
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full text-blue-900 bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-bold rounded-lg text-lg px-5 py-4 text-center transition duration-300 ease-in-out transform hover:scale-105"
+            >
+              <span>KIRIM PENDAFTARAN</span>
+            </button>
+          </form>
+        </div>
+      </main>
     </div>
-
-    <!-- 
-    ================================================================
-    PETUNJUK PENTING UNTUK GOOGLE APPS SCRIPT (FILE UPLOAD)
-    ================================================================
-    Script ini BERBEDA dari sebelumnya karena menangani upload file.
-
-    Langkah 1: Buat Google Sheet & Folder Google Drive
-    1. Buat Google Sheet baru.
-    2. Di baris pertama, buat header kolom **PERSIS** seperti ini:
-       `Timestamp`, `fullName`, `whatsappNumber`, `sekolahKedinasan`, `confidenceLevel`, `expectedScore`, `buktiStoryIG`, `buktiFollowTiktok`
-    3. Buat folder baru di Google Drive Anda (misal: "Bukti Pendaftaran Webinar").
-    4. Buka folder tersebut, dan salin ID Folder dari URL. ID adalah teks setelah `/folders/`.
-       Contoh: di URL `https://drive.google.com/drive/folders/1a2b3c4d5e6f7g8h9i0j`, IDnya adalah `1a2b3c4d5e6f7g8h9i0j`.
-
-    Langkah 2: Buat Google Apps Script
-    1. Di Google Sheet, buka Ekstensi > Apps Script.
-    2. Hapus kode contoh, lalu **SALIN & TEMPEL KODE DI BAWAH INI SECARA KESELURUHAN**.
-    3. **PENTING:** Ganti `'GANTI_DENGAN_ID_FOLDER_ANDA'` dengan ID Folder Google Drive yang Anda salin di Langkah 1.
-
-    ----------------------------------------------------------------
-    
-    // Ganti dengan ID Folder Google Drive Anda
-    var FOLDER_ID = 'GANTI_DENGAN_ID_FOLDER_ANDA';
-
-    function doPost(e) {
-      try {
-        var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Sheet1"); // Pastikan nama sheet benar
-        var folder = DriveApp.getFolderById(FOLDER_ID);
-
-        // Ambil data teks dari parameter
-        var fullName = e.parameter.fullName;
-        var whatsappNumber = e.parameter.whatsappNumber;
-        var sekolahKedinasan = e.parameter.sekolahKedinasan;
-        var confidenceLevel = e.parameter.confidenceLevel;
-        var expectedScore = e.parameter.expectedScore;
-        var otherSekolah = e.parameter.otherSekolah || '';
-
-        // Jika 'Lainnya...' dipilih, gunakan isian dari 'otherSekolah'
-        if (sekolahKedinasan === 'Other') {
-          sekolahKedinasan = otherSekolah;
-        }
-        
-        // Upload file dan dapatkan URL-nya
-        var igProofBlob = e.parameter.igProof;
-        var tiktokProofBlob = e.parameter.tiktokProof;
-
-        var timestamp = new Date();
-        var igFileUrl = uploadFileToDrive(igProofBlob, folder, timestamp, fullName, 'IG');
-        var tiktokFileUrl = uploadFileToDrive(tiktokProofBlob, folder, timestamp, fullName, 'TikTok');
-        
-        // Tambahkan baris baru ke spreadsheet
-        sheet.appendRow([
-          timestamp,
-          fullName,
-          whatsappNumber,
-          sekolahKedinasan,
-          confidenceLevel,
-          expectedScore,
-          igFileUrl,
-          tiktokFileUrl
-        ]);
-        
-        // Kirim respon sukses
-        return ContentService.createTextOutput(JSON.stringify({ "result": "success" })).setMimeType(ContentService.MimeType.JSON);
-        
-      } catch (error) {
-        return ContentService.createTextOutput(JSON.stringify({ "result": "error", "message": error.toString() })).setMimeType(ContentService.MimeType.JSON);
-      }
-    }
-
-    function uploadFileToDrive(fileBlob, folder, timestamp, name, type) {
-      if (!fileBlob) return 'Tidak ada file';
-
-      var sanitizedName = name.replace(/[^a-zA-Z0-9]/g, '_');
-      var fileName = Utilities.formatDate(timestamp, 'GMT+7', 'yyyyMMdd_HHmmss') + '_' + sanitizedName + '_' + type + '.' + fileBlob.getName().split('.').pop();
-      
-      var file = folder.createFile(fileBlob.getBlob());
-      file.setName(fileName);
-      file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-      
-      return file.getUrl();
-    }
-
-    ----------------------------------------------------------------
-
-    Langkah 3: Deploy Script
-    1. Klik "Deploy" > "New deployment".
-    2. Pilih tipe "Web app".
-    3. Execute as: "Me".
-    4. Who has access: **"Anyone" (SANGAT PENTING)**.
-    5. Klik "Deploy", berikan izin akses saat diminta.
-    6. Salin "Web app URL" yang muncul.
-
-    Langkah 4: Hubungkan ke JavaScript
-    1. Di kode HTML di bawah, cari `const scriptURL`.
-    2. Ganti placeholder dengan URL Web app yang Anda salin.
-    ================================================================
-    -->
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        // --- All form elements ---
-        const form = document.getElementById("registrationForm");
-        const submitButton = document.getElementById("submitButton");
-        const buttonText = document.getElementById("buttonText");
-        const buttonSpinner = document.getElementById("buttonSpinner");
-        const formMessage = document.getElementById("formMessage");
-        const downloadFlyerBtn = document.getElementById("downloadFlyerBtn");
-        const flyerImage = document.getElementById("webinarFlyer");
-        const igProofInput = document.getElementById("igProof");
-        const tiktokProofInput = document.getElementById("tiktokProof");
+        const form = document.getElementById("bimbelForm");
+        const noWhatsappInput = document.getElementById("noWhatsapp");
+        const whatsappError = document.getElementById("whatsappError");
+        const paymentProofInput = document.getElementById("paymentProof");
 
-        // GOOGLE APPS SCRIPT URL - GANTI DENGAN URL ANDA
-        const scriptURL =
-          "https://script.google.com/macros/s/AKfycbzuKkJWTKR9w9OV9exq5upBRZBYBG7vAr0joUkcCMMTo-FEhtvUBfXiObcsrz5DWKY/exec";
-
-        // --- Download Flyer Logic ---
-        downloadFlyerBtn.addEventListener("click", (e) => {
-          e.preventDefault();
-          const link = document.createElement("a");
-          link.href = flyerImage.src;
-          link.download = "Flyer-Webinar-SpeedU.png";
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-        });
-
-        // --- File Input Logic ---
-        function setupFileInput(inputId, labelId) {
-          const fileInput = document.getElementById(inputId);
-          const fileNameLabel = document.getElementById(labelId);
-          const originalText = fileNameLabel.textContent;
-
-          fileInput.addEventListener("change", () => {
-            if (fileInput.files.length > 0) {
-              fileNameLabel.textContent = fileInput.files[0].name;
-            } else {
-              fileNameLabel.textContent = originalText;
-            }
-          });
-        }
-        setupFileInput("igProof", "igFileName");
-        setupFileInput("tiktokProof", "tiktokFileName");
-
-        // --- General Form Logic ---
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) entry.target.classList.add("visible");
-            });
-          },
-          { threshold: 0.1 }
-        );
-        document
-          .querySelectorAll(".fade-in-scroll")
-          .forEach((el) => observer.observe(el));
-
-        const confidenceSlider = document.getElementById("confidenceLevel");
-        const confidenceValue = document.getElementById("confidenceValue");
-        confidenceSlider.addEventListener("input", (e) => {
-          confidenceValue.textContent = `${e.target.value}%`;
-        });
-
-        const sekolahSelect = document.getElementById("sekolahKedinasan");
-        const otherSekolahContainer = document.getElementById(
-          "otherSekolahContainer"
-        );
-        const otherSekolahInput = document.getElementById("otherSekolah");
-        sekolahSelect.addEventListener("change", (e) => {
-          const isOther = e.target.value === "Other";
-          otherSekolahContainer.classList.toggle("hidden", !isOther);
-          otherSekolahInput.required = isOther;
-        });
-
-        // --- Form Submission ---
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-
-          // --- PERBAIKAN VALIDASI DI SINI ---
-          if (
-            igProofInput.files.length === 0 ||
-            tiktokProofInput.files.length === 0
-          ) {
-            displayMessage(
-              "error",
-              "Mohon unggah kedua file bukti (Story IG dan Follow TikTok)."
-            );
-            return; // Menghentikan pengiriman formulir jika file tidak lengkap
-          }
-          // --- AKHIR PERBAIKAN VALIDASI ---
-
-          setLoading(true);
-
-          const formData = new FormData(form);
-
-          fetch(scriptURL, { method: "POST", body: formData })
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.result === "success") {
-                const successMessageHTML = `
-                    <p class="text-lg">Pendaftaran Berhasil!</p>
-                    <p class="mt-2 text-gray-300">Link Zoom akan dikirim H-1 sebelum acara.</p>
-                    <p class="mt-4 font-semibold">Jangan sampai ketinggalan info & pembahasan soal. Yuk gabung komunitas kami!</p>
-                    <a href="https://t.me/diskusispeedu" target="_blank" class="inline-block mt-4 px-6 py-2 bg-white text-blue-600 font-bold rounded-lg hover:bg-gray-200 transition-colors shadow-lg">
-                        <i class="fab fa-telegram-plane mr-2"></i> Gabung Grup Telegram
-                    </a>`;
-                displayMessage("success", successMessageHTML);
-                form.reset();
-                document.getElementById("igFileName").textContent =
-                  "Pilih atau Seret File ke Sini";
-                document.getElementById("tiktokFileName").textContent =
-                  "Pilih atau Seret File ke Sini";
-                confidenceValue.textContent = "50%";
-                otherSekolahContainer.classList.add("hidden");
-              } else {
-                throw new Error(
-                  data.message || "Terjadi kesalahan tidak diketahui."
-                );
-              }
-            })
-            .catch((error) => {
-              console.error("Error!", error.message);
-              displayMessage(
-                "error",
-                `Pendaftaran gagal. Error: ${error.message}`
-              );
-            })
-            .finally(() => {
-              setLoading(false);
-            });
-        });
-
-        function setLoading(isLoading) {
-          submitButton.disabled = isLoading;
-          buttonText.classList.toggle("hidden", isLoading);
-          buttonSpinner.classList.toggle("hidden", !isLoading);
-        }
-
-        function displayMessage(type, message) {
-          formMessage.innerHTML = message;
-          formMessage.className = "mt-4 text-center p-6 rounded-lg";
-          if (type === "success") {
-            formMessage.classList.add("bg-green-500/30", "text-white");
+        // File Input Logic
+        const fileNameLabel = document.getElementById("paymentFileName");
+        const originalText = fileNameLabel.textContent;
+        paymentProofInput.addEventListener("change", () => {
+          if (paymentProofInput.files.length > 0) {
+            fileNameLabel.textContent = paymentProofInput.files[0].name;
           } else {
-            formMessage.classList.add("bg-red-500/30", "text-red-200");
+            fileNameLabel.textContent = originalText;
           }
-          if (type !== "success") {
-            setTimeout(() => {
-              formMessage.classList.add("hidden");
-            }, 8000);
+        });
+
+        // Client-side validation before Netlify submission
+        form.addEventListener("submit", function (e) {
+          let isValid = true;
+
+          // WhatsApp validation
+          if (!/^(^\+62|62|08)(\d{8,15})$/.test(noWhatsappInput.value)) {
+            whatsappError.classList.remove("hidden");
+            noWhatsappInput.focus();
+            isValid = false;
+          } else {
+            whatsappError.classList.add("hidden");
           }
-        }
+
+          // File validation
+          if (paymentProofInput.files.length === 0) {
+            alert("Mohon unggah bukti pembayaran Anda.");
+            isValid = false;
+          }
+
+          if (!isValid) {
+            e.preventDefault(); // Stop submission if validation fails
+          }
+        });
       });
     </script>
   </body>
